@@ -1,8 +1,11 @@
 //main.js
 var style =require('../style.css');
-console.log(style)
+require('../style2.css')
 
+import remInit from './pub/rem'
 const greeter = require('./Greeter.js');
+
+remInit()
 document.querySelector("#root").appendChild(greeter());
 
 // import cookie from './pub/cookie';
@@ -12,9 +15,8 @@ document.querySelector("#root").appendChild(greeter());
 // cookie.setCookie("myName" ,"老铁");
 // console.log(cookie.getCookie("myName"))
 
-
-import {str , arr ,fun} from './pub/export11';
-import * as types from './pub/export11';
+import {str , arr ,fun} from './pub/export';
+import * as types from './pub/export';
 console.log(str)
 console.log(arr)
 console.log(fun())

@@ -1,4 +1,6 @@
 
+var style3 =require('../style3.css');
+console.log(style3)
 var cookie =require('./pub/cookie');
 
 cookie.setCookie("myName","libing",2);
