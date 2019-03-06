@@ -21,9 +21,3 @@ function remInit (){
         r(0);
     }, 100);
 }
-
-var sex= "body";
-// export default  sex  ;
-module.exports = [{
-    "hhh":'哈哈'
-}]

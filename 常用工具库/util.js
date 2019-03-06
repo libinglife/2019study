@@ -45,5 +45,3 @@ function timeFormat(type) {
     }
 }
 
-var su = timeFormat("day")
-console.log(su)
