@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe3b109d-e52f-421d-ac4e-82da5df91974" name="Default Changelist" comment="正则修改提交">
-      <change afterPath="$PROJECT_DIR$/webpackDemo/src/pub/rem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpackDemo/style2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpackDemo/style3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/常用工具库/动画效果.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/H5适配/js/rem.js" beforeDir="false" afterPath="$PROJECT_DIR$/H5适配/js/rem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpackDemo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpackDemo/enter.html" beforeDir="false" afterPath="$PROJECT_DIR$/webpackDemo/enter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpackDemo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webpackDemo/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpackDemo/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpackDemo/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpackDemo/src/one.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpackDemo/src/one.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpackDemo/src/pub/export11.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpackDemo/src/pub/export.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpackDemo/src/two.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpackDemo/src/two.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpackDemo/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/webpackDemo/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpackDemo/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpackDemo/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用工具库/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/常用工具库/util.js" afterDir="false" />
+    <list default="true" id="fe3b109d-e52f-421d-ac4e-82da5df91974" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/微信js_sdk/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/微信js_sdk/test.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,160 +18,43 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="11" />
-          <entry key="gitignore" value="1" />
-          <entry key="html" value="26" />
-          <entry key="js" value="42" />
-          <entry key="json" value="5" />
-          <entry key="md" value="1" />
+          <entry key="html" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="11" />
-          <entry key="HTML" value="26" />
-          <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="42" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="tsconfig" value="1" />
+          <entry key="HTML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="116" />
-          <entry key="gitignore" value="7" />
-          <entry key="html" value="227" />
-          <entry key="js" value="3273" />
-          <entry key="json" value="71" />
-          <entry key="txt" value="16" />
+          <entry key="html" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="116" />
-          <entry key="HTML" value="227" />
-          <entry key="JSON" value="71" />
-          <entry key="JavaScript" value="3273" />
-          <entry key="PLAIN_TEXT" value="23" />
+          <entry key="HTML" value="8" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpackDemo/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpackDemo/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-              <folding>
-                <element signature="e#405#449#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpackDemo/src/greeter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpackDemo/src/one.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpackDemo/src/pub/rem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="23" />
-              <folding>
-                <element signature="n#!!block;n#r#0;n#!!block;n#remInit#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpackDemo/webpack.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webpackDemo/src/two.js">
+        <entry file="file://$PROJECT_DIR$/微信js_sdk/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" selection-start-column="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpackDemo/style3.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpackDemo/src/pub/export.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+            <state relative-caret-position="245">
+              <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="tsconfig.json" />
-        <option value="HTML File" />
-        <option value="JavaScript File" />
-        <option value="CSS File" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>gold</find>
-      <find>mode</find>
-      <find>two</find>
-      <find>opacityVal</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -195,38 +63,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/微信js_sdk/test.html" />
-        <option value="$PROJECT_DIR$/canvas/canvas.html" />
-        <option value="$PROJECT_DIR$/ES6语法/ES6.html" />
-        <option value="$PROJECT_DIR$/动效/动画.html" />
-        <option value="$PROJECT_DIR$/正则/正则.html" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/hello.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/index.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/css/index.css" />
-        <option value="$PROJECT_DIR$/webpackDemo/libing.css" />
-        <option value="$PROJECT_DIR$/webpackDemo/index.html" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/js/index.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/test.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/public/index.html" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/tsconfig.json" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/config.json" />
-        <option value="$PROJECT_DIR$/webpackDemo/package.json" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/greeter.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/pub/cookie.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/pub/export.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/pub/export11.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/.gitignore" />
-        <option value="$PROJECT_DIR$/webpackDemo/style.css" />
-        <option value="$PROJECT_DIR$/常用工具库/util.js" />
-        <option value="$PROJECT_DIR$/常用工具库/动画效果.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/enter.html" />
-        <option value="$PROJECT_DIR$/webpackDemo/style2.css" />
-        <option value="$PROJECT_DIR$/H5适配/js/rem.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/pub/rem.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/style3.css" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/main.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/one.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/webpack.config.js" />
-        <option value="$PROJECT_DIR$/webpackDemo/src/two.js" />
       </list>
     </option>
   </component>
@@ -236,16 +72,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/webpackDemo/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/webpackDemo/package.json" />
-    </packageJsonPaths>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1672" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1696" />
     <option name="height" value="1026" />
@@ -256,7 +84,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,46 +94,20 @@
             <path>
               <item name="2019workStudy" type="b2602c69:ProjectViewProjectNode" />
               <item name="2019workStudy" type="462c0819:PsiDirectoryNode" />
-              <item name="webpackDemo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019workStudy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019workStudy" type="462c0819:PsiDirectoryNode" />
-              <item name="webpackDemo" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019workStudy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019workStudy" type="462c0819:PsiDirectoryNode" />
-              <item name="webpackDemo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="微信js_sdk" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\libingStudy\2019workStudy" />
-      <recent name="E:\libingStudy\2019workStudy\webpackDemo\src\pub" />
-      <recent name="E:\libingStudy\2019workStudy\webpackDemo\src\js" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\libingStudy\2019workStudy\webpackDemo" />
-      <recent name="E:\libingStudy\2019workStudy\webpackDemo\src\pub" />
-      <recent name="E:\libingStudy\2019workStudy\webpackDemo\src" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -330,57 +131,31 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551433763203</updated>
-      <workItem from="1551433766460" duration="23345000" />
-      <workItem from="1551695852655" duration="30246000" />
-      <workItem from="1551867960782" duration="2531000" />
+      <workItem from="1551433766460" duration="56000" />
     </task>
-    <task id="LOCAL-00001" summary="第二次提交入口文件">
-      <created>1551437997602</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1551437997602</updated>
-    </task>
-    <task id="LOCAL-00002" summary="正则修改提交">
-      <created>1551438321812</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1551438321812</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56122000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="56000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1672" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24969624" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936978" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936978" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.47919145" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.17954816" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -389,294 +164,14 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection>
-                  <UserGroup>
-                    <option name="users">
-                      <list>
-                        <option value="me" />
-                      </list>
-                    </option>
-                  </UserGroup>
-                </collection>
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="第二次提交入口文件" />
-    <MESSAGE value="正则修改提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="正则修改提交" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/微信js_sdk/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/package-lock.json" />
-    <entry file="file://$PROJECT_DIR$/动效/动画.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/正则/正则.html">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/canvas/canvas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ES6语法/ES6.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/main.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/main.804c2914.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/test.html" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/main.626b2aff.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/main.3a837369.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/js/index.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/js/hello.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/css/index.css" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/test.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/index.html" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/libing.css" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/node_modules/_path@0.12.7@path/path.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/node_modules/_webpack@3.12.0@webpack/lib/webpack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/public/bundle.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/public/index.html" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/public/two.5acbc31c.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/public/one.2d38c9ab.js" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/public/enter.html" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/pub/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/常用工具库/utils.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/常用工具库/动画效果.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/常用工具库/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/main.css" />
-    <entry file="file://$PROJECT_DIR$/webpackDemo/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/H5适配/js/rem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/main.993abd80.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/static/css/main.993abd80.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-206" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/style2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/enter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/pub/export.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/style3.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/static/css/main.904c351b.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-158" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/one.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/dist/static/css/main.ca26b4a9.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/greeter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/pub/cookie.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="e#405#449#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/pub/rem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!block;n#r#0;n#!!block;n#remInit#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpackDemo/src/two.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
         </state>
       </provider>
     </entry>
