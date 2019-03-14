@@ -12,24 +12,26 @@ let readFile =function (url) {
     })
 };
 
-function * gen () {
-    yield readFile("./data/a.text");
-    yield readFile("./data/b.text");
-    yield readFile("./data/c.text");
+function * gen () {   // 定义 gen 生成器函数
+   let res1 = yield readFile("./data/a.text");
+   // console.log(res1)
+   let res2 = yield readFile(res1);
+    // console.log(res2)
+   let res3 = yield readFile(res2);
 }
 
 let fn = gen();
 // console.log(fn.next());
 fn.next().value.then(res=>{
     console.log(res.toString());
-    return fn.next().value
+    return fn.next(res.toString()).value
 }).then(res=>{
     console.log(res.toString());
-    return fn.next().value
+    return fn.next(res.toString()).value
 }).then(res=>{
     console.log(res.toString())
 }).catch(err=>{
     console.log(err)
-})
+});
 
 
