@@ -21,6 +21,7 @@ let readFile =function (url) {
 //     console.log(f3.toString());
 // }
 
+fn();
 async function fn () {
     const f1 = await  readFile('./data/a.text');
     console.log(f1.toString());
@@ -30,5 +31,18 @@ async function fn () {
     console.log(f3.toString());
 }
 
-fn();
+
+//加入请求没有关系
+// demo()
+async function demo() {
+    let p1 = readFile('./data/a.text');
+    let p2 = readFile('./data/b.text');
+    let p3 = readFile('./data/c.text');
+
+    var res = await Promise.all([p1, p2, p3]);
+    let [a,b,c] = res;
+    console.log(a.toString());
+    console.log(b.toString());
+    console.log(c.toString())
+}
 
