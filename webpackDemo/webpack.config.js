@@ -12,6 +12,7 @@ module.exports= {
         main:['./src/main.js'],
         one:['./src/one.js'],
         two:['./src/two.js'],
+        three:['./src/process.js'],
     } , //入口文件
     output:{
         path:path.resolve(__dirname , 'dist'),
@@ -50,19 +51,22 @@ module.exports= {
     devServer: {
         contentBase:"./dist" ,//本地服务器所加载文件的目录
         historyApiFallback:true, //不跳转
-        inline:true //实时刷新
+        inline:true, //实时刷新
+        port:8090, //自定义服务监听端口
+        host:'127.0.0.1' // 通过localhost访问
+
     },
     plugins:[
         new CleanWebpackPlugin(['dist']), //清除上一次打包的老文件
         // new ExtractTextPlugin({           //抽离css
         //    filename:'static/css/[name].[chunkhash:8].css'
         // }),
-        // new MiniCssExtractPlugin({  // 对应 webpack 4.0 版本
-        //    filename: "static/css/[name].[chunkhash:8].css"
-        // }),
-        new MiniCssExtractPlugin(  // 对应 webpack 4.0 版本
-           "static/css/[name].[chunkhash:8].css"
-        ),
+        new MiniCssExtractPlugin({  // 对应 webpack 4.0 版本
+           filename: "static/css/[name].[chunkhash:8].css"
+        }),
+        // new MiniCssExtractPlugin(  // 对应 webpack 4.0 版本
+        //    "static/css/[name].[chunkhash:8].css"
+        // ),
         new HtmlWebpackPlugin({//根据模板自动生成 'Index.html' 文件，并且将带有hash指纹的js打入到html中
             title: "hello webpack",
             filename: 'index.html', //定义出口文件名

@@ -1,1 +1,3 @@
-console.log("two.js")
+console.log("two.js");
+
+var definePro =require("./pub/defineProperty");
