@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <div id = "app">
+       组件一的值：<counter ref="one" @test = "sum"></counter>
+       <br>
+       组件二的值：<counter ref="two" @test = "sum"></counter>
+       <br>
+
+       一和二的总和 ：<span>{{sumNumber}}</span>
+
+   </div>
+
+<script src="http://s.xnimg.cn/a93557/wap/mobile/recharge/timeslong/vue.min.js"></script>
+
+<script>
+
+    Vue.component("counter",{
+        template: "<div @click='handle'>{{number}}</div>",
+        data: function () {
+            return{
+                number:0
+            }
+        },
+        methods: {
+            handle(){
+                console.log("执行");
+                this.number++ ;
+                this.$emit('test');
+            }
+        }
+    })
+
+    var app =new Vue({
+        el: '#app',
+        data: {
+            sumNumber: 0
+        },
+        methods: {
+            sum(){
+                console.log(this.$refs)
+                this.sumNumber = this.$refs.one.number + this.$refs.two.number;
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+     function Person(myName) {
+         this.name = myName
+     }
+     Person.prototype.type ="test";
+
+     var libing  = new Person("李兵");
+     console.dir(Person)
+     console.log(libing)
+     // console.log(libing.name)
+     // console.log(libing.type);
+
+     console.log(libing.__proto__ === Person.prototype)
+     console.log(Person.prototype.constructor ===Person)
+     console.log(libing.__proto__.constructor ===Person)
+
+
+
+</script>
+</body>
+</html>
