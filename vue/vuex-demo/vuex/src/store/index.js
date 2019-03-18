@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import jquery from 'jquery'
-
 
 Vue.use(Vuex);
 
@@ -18,10 +16,13 @@ export default new Vuex.Store({
         type: '联想小新潮',
         price:'5800'
       }
-    ]
+    ] ,
+    author:'李兵',
+    age:'24',
+    national:'china'
   },
   getters:{
-    getterProduct :function (state) {
+    product :function (state) {
       return state.product
     },
     halfPrice :(state)=>{
@@ -41,8 +42,9 @@ export default new Vuex.Store({
         })
     },
     addPrice (state ,payload){
-      // setTimeout(function () {
-        state.product.forEach((item , index)=>{
+       console.log(payload)
+      // setTimeout(function () {  //不可以异步操作
+        state.product.forEach((item , index)=> {
           item.price = Number(item.price)+payload.addNum
         })
       // },1000)
@@ -58,7 +60,7 @@ export default new Vuex.Store({
       console.log(payload)
       context.commit('addPrice' ,payload)
     }*/
-    text ({commit} ,payload){
+    addPrice ({commit} ,payload){
 
       setTimeout(function () {
         commit('addPrice' ,payload)
@@ -66,25 +68,14 @@ export default new Vuex.Store({
 
     } ,
     changeName ({commit}, payload){
-      jquery.ajax({
-        url: './assets/ajax.json',
-        type: 'get',
-        success: function (res) {
-          console.log(res);
+      setTimeout(function () {
+        commit('changeName' ,{
+          name:payload.name
+        })
+      },1000)
 
-          commit('changeName' ,{
-            name:res.name
-          })
-        },
-        error :function (err) {
-          console.log(err)
-        }
-      })
     }
-
   }
-
-
 })
 
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upLoadImg</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        img{
+            width: 100%;
+        }
+        input {
+            font-size: 30px;
+            width: 300px;
+            height: 50px;
+        }
+        button{
+            font-size: 30px;
+            width: 300px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--<input type="file">-->
+
+<img class="photo photo-img" src="" alt="">
+<form id="img_form"  action="" method="post" enctype="multipart/form-data">
+    <input name="img" type="file" id="img-input"  onchange="upLoadImg()" />
+</form>
+
+
+<script src="http://s.xnimg.cn/a94371/wap/mobile/2017activity/listingPage/wap-page/js/jquery-3.2.1.min.js"></script>
+<script src="static/js/jquery.form.js"></script>
+<script>
+
+    function upLoadImg() {
+        var domain = "http://127.0.0.1:8088";
+        var form = $('#img_form');
+        var option ={
+            url: domain +'/upload/img',
+            type:'POST',
+            success:function (res) {
+                var  data =JSON.parse(res);
+                if(data.code == 0){
+                    var  imgUrl = data.data.url;
+                }else {
+                    alert("上传图片出错")
+                }
+            }
+        };
+
+
+        // console.log(form.ajaxForm())
+        form.ajaxSubmit(option);
+
+
+
+        var file = $('#img-input')[0].files[0];
+        var reader = new FileReader();
+        // console.log(reader)
+        // console.log(file)
+
+        reader.onload = function (e) {
+            // console.log(e);
+            var imgUrl = e.target.result;
+            $('.photo-img').attr('src',imgUrl)
+        };
+
+        reader.readAsDataURL(file)
+
+    }
+
+
+</script>
+</body>
+</html>
