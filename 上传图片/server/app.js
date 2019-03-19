@@ -1,16 +1,18 @@
-"use strict"
+"use strict";
 
 let express = require('express');
 let multer = require('multer') ;
-var bodyParse = require('body-parser');
+let bodyParse = require('body-parser');
 
 let app = express();
 
 let storage = multer.diskStorage({
     destination :function(req , file ,cb){
-        cb (null , './uploads')
+
+        cb (null , './public/uploads')
     },
     filename : function (req , file ,cb){
+
         cb (null , `${Date.now()}-${file.originalname}`)
     }
 })
@@ -23,18 +25,19 @@ let upload = multer ({
 let imgBaseUrl ='../';
 
 //bodyParse 用来解析post数据
-
 app.use(bodyParse.urlencoded({
     extended :false
 }));
+
 app.use(express.static('public'));
 
 //解决跨域问题
 
 app.all('*' ,function(req,res,next){
-    req.header('Access-Control-Allow-Origin', '*');
-    req.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
-    req.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    res.header("Content-type","text/html;charset=utf-8")
 
     if(req.method == 'OPTIONS'){
         res.send(200);
@@ -43,6 +46,7 @@ app.all('*' ,function(req,res,next){
     }
 });
 
+console.log(upload);
 //文件上传请求处理 ，upload.array 支持多文件上传，第二个参数是上传文件数目
 
 app.post('/upload/img', upload.array('img', 2), function (req, res) {
@@ -65,12 +69,12 @@ app.post('/upload/img', upload.array('img', 2), function (req, res) {
 
     res.end(JSON.stringify(result));
 
-})
+});
 
 
 const server = app.listen(8088,'127.0.0.1',function () {
     console.log('listening at ==========> http://127.0.0.1:8088')
-})
+});
 
 
 
