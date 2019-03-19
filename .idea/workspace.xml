@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe3b109d-e52f-421d-ac4e-82da5df91974" name="Default Changelist" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/store/actions.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/store/getters.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/store/mutation-type.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/store/mutations.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/store/state.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/store/store.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/上传图片/server/app.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/上传图片/static/js/jquery.form.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/上传图片/upImage.html" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/vue/vuex-demo/vuex/package.json" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/package.json" />
-      <change beforePath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/App.vue" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/App.vue" />
-      <change beforePath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/assets/ajax.json" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/assets/ajax.json" />
-      <change beforePath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/components/p1.vue" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/components/p1.vue" />
-      <change beforePath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/main.js" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/main.js" />
-      <change beforePath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/store/index.js" afterPath="$PROJECT_DIR$/vue/vuex-demo/vuex/src/store/index.js" />
+    <list default="true" id="fe3b109d-e52f-421d-ac4e-82da5df91974" name="Default Changelist" comment="修改上传图片">
+      <change beforePath="$PROJECT_DIR$/上传图片/server/app.js" afterPath="$PROJECT_DIR$/上传图片/server/app.js" />
+      <change beforePath="$PROJECT_DIR$/上传图片/server/public/upImage.html" afterPath="$PROJECT_DIR$/上传图片/server/public/upImage.html" />
+      <change beforePath="$PROJECT_DIR$/上传图片/server/uploads/1552909503197-主活动.jpg" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -88,24 +74,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="upImage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/上传图片/upImage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="66" column="9" lean-forward="false" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
-              <folding>
-                <marker date="1552907212211" expanded="true" signature="948:1294" ph="//..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/上传图片/server/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
-              <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-              <folding />
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding>
+                <marker date="1552972801522" expanded="true" signature="178:377" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="221:268" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="310:375" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="417:442" ph="{&quot;storage&quot;: storage...}" />
+                <marker date="1552972801522" expanded="true" signature="522:545" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="631:1055" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="996:1026" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="1031:1053" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="1195:1518" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="1287:1349" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="1353:1477" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="1401:1444" ph="{...}" />
+                <marker date="1552972801522" expanded="true" signature="1578:1647" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -246,6 +234,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -256,32 +245,12 @@
             <path>
               <item name="2019workStudy" type="b2602c69:ProjectViewProjectNode" />
               <item name="2019workStudy" type="462c0819:PsiDirectoryNode" />
-              <item name="上传图片" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019workStudy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019workStudy" type="462c0819:PsiDirectoryNode" />
-              <item name="上传图片" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019workStudy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019workStudy" type="462c0819:PsiDirectoryNode" />
-              <item name="上传图片" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019workStudy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019workStudy" type="462c0819:PsiDirectoryNode" />
-              <item name="上传图片" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="动效" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -290,7 +259,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.9.4" />
-    <property name="last_opened_file_path" value="F:/xn.static/wap/mobile/liveroomActivity/treasureBox" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -345,6 +314,7 @@
       <workItem from="1552648169040" duration="878000" />
       <workItem from="1552888233615" duration="15722000" />
       <workItem from="1552906390817" duration="111000" />
+      <workItem from="1552975229483" duration="262000" />
     </task>
     <task id="LOCAL-00001" summary="第二次提交入口文件">
       <created>1551437997602</created>
@@ -374,11 +344,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552554569444</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改上传图片">
+      <created>1552975488673</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1552975488673</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95064000" />
+    <option name="totallyTimeSpent" value="95326000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -395,20 +372,20 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2276029" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34767443" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34767443" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38255814" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44767442" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -468,7 +445,8 @@
     <MESSAGE value="正则修改提交" />
     <MESSAGE value="异步回调分享" />
     <MESSAGE value="学习 3.14" />
-    <option name="LAST_COMMIT_MESSAGE" value="学习 3.14" />
+    <MESSAGE value="修改上传图片" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改上传图片" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -484,14 +462,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/上传图片/server/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpackDemo/style2.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -766,13 +736,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/上传图片/static/js/jquery.form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="498" column="25" lean-forward="false" selection-start-line="498" selection-start-column="25" selection-end-line="498" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/上传图片/static/js/jquery.form.js" />
     <entry file="file://$PROJECT_DIR$/上传图片/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -781,21 +745,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/上传图片/upImage.html">
+    <entry file="file://$PROJECT_DIR$/上传图片/upImage.html" />
+    <entry file="file://$PROJECT_DIR$/动效/动画.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="66" column="9" lean-forward="false" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
-          <folding>
-            <marker date="1552907212211" expanded="true" signature="948:1294" ph="//..." />
-          </folding>
+        <state relative-caret-position="264">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/上传图片/server/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-          <folding />
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <marker date="1552972801522" expanded="true" signature="178:377" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="221:268" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="310:375" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="417:442" ph="{&quot;storage&quot;: storage...}" />
+            <marker date="1552972801522" expanded="true" signature="522:545" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="631:1055" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="996:1026" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="1031:1053" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="1195:1518" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="1287:1349" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="1353:1477" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="1401:1444" ph="{...}" />
+            <marker date="1552972801522" expanded="true" signature="1578:1647" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
