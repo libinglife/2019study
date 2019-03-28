@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+
+        body{
+            opacity: 0;
+            height: 100%;
+            background: #ff8900;
+        }
+
+
+        #testCanvas {
+            /*width: 100%;*/
+            /*!*height: 640px;*!*/
+            /*height: 6.40rem;*/
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .testImg {
+            display: block;
+            width: 100%;
+            /*height: 640px;*/
+            height: 6.4rem;
+        }
+        .testDiv{
+            width: 100%;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<!--适配js-->
+<script>
+    window.onresize = r;
+    function r(resizeNum) {
+        //核心适配代码
+        var winW = window.innerWidth;
+        // document.getElementsByTagName("html")[0].style.fontSize = winW * 0.15625 + "px";
+        document.getElementsByTagName("html")[0].style.fontSize = winW * 0.13333333333 + "px";
+        //核心适配代码
+        if (winW > window.screen.width && resizeNum <= 10) {
+            setTimeout(function() {
+                r(++resizeNum)
+            }, 100);
+        } else {
+            document.getElementsByTagName("body")[0].style.opacity = 1;
+        }
+    }
+    setTimeout(function() {
+        r(0);
+    }, 100);
+</script>
+
+
+
+
+<canvas id="testCanvas" height="841px" width="980px" ></canvas>
+
+
+<img class="testImg"  src="images/2018年度盛典标题动效0000.png" alt="">
+<!--<div class="testDiv">测试</div>-->
+
+
+<script src="http://s.xnimg.cn/a94371/wap/mobile/2017activity/listingPage/wap-page/js/jquery-3.2.1.min.js"></script>
+<script src="libs/frame-animation.js"></script>
+<script src="libs/index.js"></script>
+</body>
+</html>
