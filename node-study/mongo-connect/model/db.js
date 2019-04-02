@@ -50,8 +50,8 @@ exports.find = function (collectionName , json ,C , D ) {
     //连接数据库
     _connectDB((err , client)=>{
         let db = client.db('libingData');
-        // let cursor = db.collection(collectionName).find(json).skip(skipnumber).limit(limit).sort(sort);
-        let cursor = db.collection(collectionName).find(json).skip(skipnumber).limit(limit);
+        let cursor = db.collection(collectionName).find(json).skip(skipnumber).limit(limit).sort(sort);
+        // let cursor = db.collection(collectionName).find(json).skip(skipnumber).limit(limit);
         cursor.toArray((err,result)=>{
           if(err){
               throw err

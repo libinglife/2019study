@@ -13,11 +13,13 @@ app.set('view engine' , "ejs") ;
 //静态
 app.use(express.static(require('path').join(__dirname,'./public')));
 
+
+//渲染首页
 app.get('/',function (req ,res ,next) {
     db.getAllCount('liuyanben' ,function (count) {
         res.render('index',{
-            "pageamount":Math.ceil(count/10)
-        })
+            "pageamount":Math.ceil(count/5)
+        });
     })
 });
 
@@ -39,11 +41,41 @@ app.post('/tijiao',function (req,res,next) {
     })
 });
 
+//读取所有留言
+app.get('/find',function (req,res,next) {
+
+    var page = req.query.page;
+    console.log(page);
+
+    db.find('liuyanben',{},{"sort":{'time':-1},"pageamount":5,"page":page},function (err,result) {
+        if(err){
+            res.json({'msg':"获取数据失败","code":'-1'});
+            throw err
+        }else {
+            res.json({'data':result,"code":1})
+        }
+    })
+});
+
+//删除某条留言
+app.get('/delete' ,function (req,res,next) {
+    var id = req.query.id;
+    console.log(id)
+    db.deleteMany('liuyanben',{"_id":ObjectId(id)},function (err,result) {
+        if(err){
+            res.json({"code":-1,'msg':'删除失败'})
+            throw err
+        }else {
+            res.json({'code':1,'msg':"删除成功"})
+            // res.redirect('/')
+        }
+    })
+})
 
 
 
 
 
-app.listen(3002 , '127.0.0.1' ,()=>{
-    console.log(`成功打开-----------127.0.0.1:3002`);
+app.listen(8001 , '0.0.0.0' ,()=>{
+    console.log(`成功打开-----------39.105.195.48:8001`);
 });
