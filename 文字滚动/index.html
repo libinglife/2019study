@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .scrollDiv {
+            border: 1px solid red;
+            width: 600px;
+            height: 20px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        
+        .scrollUl {
+            width: 100%;
+            height: 70px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scrollDiv">
+        <ul class="scrollUl">
+            <!-- <li>1111</li>
+            <li>2222</li>
+            <li>33333</li>
+            <li>44444</li>
+            <li>55555</li>
+            <li>66666</li> -->
+        </ul>
+    </div>
+
+
+    <button id="add">点击</button>
+    <script src="./jquery-3.1.0.min.js">
+    </script>
+
+    <script>
+        var arr = [
+            "111",
+            "222",
+            "333",
+            "444"
+        ];
+
+
+
+
+        xuanRan(arr);
+
+
+
+        $('#add').click(function() {
+            console.log("执行")
+            $('.scrollUl').append("<li>增加一条</li>");
+        })
+
+        function xuanRan(data) {
+
+            if (data.length == 0) {
+                return;
+            }
+
+            var lihtml = '';
+
+            for (var i = 0; i < data.length; i++) {
+                lihtml += '<li>' + data[i] + '</li>'
+            }
+
+            $('.scrollUl').append(lihtml);
+
+
+            if (data.length > 1) {
+                scrollFN()
+            }
+
+        }
+
+        function scrollFN() {
+
+
+            $('.scrollUl').animate({
+                marginTop: '-20px',
+            }, 300, function() {
+
+                time1 && clearTimeout(time1); //清除上次的定时器
+
+                var removeEle = $(".scrollUl li:first").remove();
+
+                $(".scrollUl").append(removeEle)
+
+                $('.scrollUl').css({
+                    marginTop: '0'
+                });
+                var time1 = setTimeout(function(param) {
+                    scrollFN()
+                }, 1000)
+
+            })
+        }
+    </script>
+</body>
+
+</html>
