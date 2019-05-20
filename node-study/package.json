@@ -4,8 +4,10 @@
   "description": "学习Node.js",
   "main": "index.js",
   "devDependencies": {
+    "cookie-parser": "^1.4.4",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-session": "^1.16.1",
     "formidable": "^1.2.1",
     "mongodb": "^3.2.2",
     "vconsole": "^3.3.0"

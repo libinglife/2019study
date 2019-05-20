@@ -5,7 +5,7 @@
  * @param minNum  //默认16
  * @param maxNum  //默认32
  */
-function randomStr( minNum , randomFlag , maxNum   ) {
+function randomStr( minNum , randomFlag , maxNum ) {
     var str = '' ;
     var minnum = minNum || 16; //默认16
     var maxnum = maxNum || 32; //默认32
@@ -45,3 +45,20 @@ function timeFormat(type) {
     }
 }
 
+
+/**
+ * 过滤数据大于一万 添加 W 
+ * @param type //确定什么格式 天或秒
+ * @returns {*}
+ */
+
+ function filterNum (num){
+    
+    if (num>=0) { //判断先为正数
+        return num>9999 ? (num/10000).toFixed(1)+"W" : num;
+    }else { // 负数的情况
+        var absNum =Math.abs(num);
+        return num>9999
+
+    }
+ }

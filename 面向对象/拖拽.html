@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+           margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+ <div id="box"></div>
+
+<!--
+ <script>
+   //方法1：  &lt;!&ndash;面向过程&ndash;&gt;
+   var oBox = null ;
+   var disX = 0;
+   var disY = 0;
+
+   window.onload = function (ev) {
+       oBox=document.getElementById('box');
+       oBox.onmousedown = fnDown;
+   };
+
+   //按下事件
+   function fnDown(ev) {
+       var oEvent = ev || event ;
+       disX = oEvent.clientX - oBox.offsetLeft;
+       disY = oEvent.clientY - oBox.offsetTop;
+
+       document.onmousemove = fnMove;
+       document.onmouseup =fnUp;
+   }
+
+   //移动事件
+   function fnMove(ev) {
+       console.log("滑动");
+       var oEvent = ev || event;
+       oBox.style.left = oEvent.clientX - disX + 'px';
+       oBox.style.top = oEvent.clientY - disY + 'px';
+
+   }
+   //抬起事件
+   function fnUp() {
+       console.log("抬起");
+       document.onmousemove = null;
+       document.onmouseup = null;
+   }
+
+
+
+
+ </script>
+-->
+
+ <script>
+     //方法2 <!--面向对象-->
+
+     window.onload =function (ev) {
+
+         var t1 = new TuoZhuai("box")
+     };
+
+     function TuoZhuai(id) {
+       this.oBox = document.getElementById(id);
+
+       this.disX = 0;
+       this.disY = 0;
+
+       var _this = this;
+       this.oBox.onmousedown = function (ev) {
+           console.log("按下");
+           _this.fnDown()
+       }
+     }
+
+     TuoZhuai.prototype ={
+         fnDown : function (ev) {
+             var oEvent = ev || event;
+
+             this.disX = oEvent.clientX - this.oBox.offsetLeft;
+             this.disY = oEvent.clientY - this.oBox.offsetTop;
+
+             var _this = this;
+             document.onmousemove = function (ev2) {
+                 _this.fnMove()
+             };
+
+             document.onmouseup = function (ev2) {
+                 _this.fnUp()
+             }
+
+         },
+         fnMove : function (ev) {
+             var oEvent = ev || event;
+             this.oBox.style.left = oEvent.clientX - this.disX +'px';
+             this.oBox.style.top = oEvent.clientY - this.disY+"px";
+         },
+         fnUp : function (ev) {
+             document.onmousemove = null ;
+             document.onmouseup = null ;
+         }
+
+     }
+
+
+
+ </script>
+
+<!--
+
+ server {
+          listen   63342 ;
+          server_name  localost ;
+
+          location / {
+                  proxy_pass huodong.renren.com;
+          }
+    }
+
+
+
+
+
+
+-->
+
+</body>
+</html>

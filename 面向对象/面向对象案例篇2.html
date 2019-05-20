@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       .item input {
+            background: #F6F3F3;
+            border: 1px solid #FF0000;
+        }
+
+        .item .active {
+            background: #E9D4D4;
+        }
+
+        .item div {
+            width: 300px;
+            height: 250px;
+            display: none;
+            padding: 10px;
+            background: #E9D4D4;
+            border: 1px solid #FF0000;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="tabBox" class="item">
+    <input type="button" value="游戏" class="active"/>
+    <input type="button" value="旅行"/>
+    <input type="button" value="音乐"/>
+    <div style="display:block;">GTA5、孤岛惊魂</div>
+    <div>澳大利亚、西藏</div>
+    <div>暗里着迷、一生有你</div>
+</div>
+
+<div id="tabBox1" class="item">
+    <input type="button" value="游戏" class="active"/>
+    <input type="button" value="旅行"/>
+    <input type="button" value="音乐"/>
+    <div style="display:block;">GTA5、孤岛惊魂</div>
+    <div>澳大利亚、西藏</div>
+    <div>暗里着迷、一生有你</div>
+</div>
+
+<script src="js/myUtil/objects.js"></script>
+<script>
+
+    window.onload = function (ev) {
+        var tab1 = new Tab("tabBox");
+        var tab2 = new Tab("tabBox1");
+    }
+
+</script>
+</body>
+</html>

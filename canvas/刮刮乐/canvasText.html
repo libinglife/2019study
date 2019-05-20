@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 5px solid red;
+            margin: 100px auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="game"></canvas>
+    <script>
+        draw('game')
+
+        function draw(id) {
+            var canvas = document.getElementById(id);
+            var context = canvas.getContext('2d'); //获取对应的2D对象(画笔)
+            context.fillStyle = 'dark'; //设置填充的背景颜色
+            context.fillRect(0, 0, 300, 300); //绘制 800*300 像素的已填充矩形：
+            context.fillStyle = '#fff';
+            context.strokeStyle = '#fff'; //设置笔触的颜色
+            context.font = "24px '字体','字体','微软雅黑','宋体'"; //设置字体
+            // context.textBaseline = 'hanging'; //在绘制文本时使用的当前文本基线
+            context.fillText('欢迎收看', 100, 100); //设置文本内容
+        }
+    </script>
+</body>
+
+</html>

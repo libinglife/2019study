@@ -1,0 +1,83 @@
+/**
+ * 属性 ： 画布的宽度 ，高度 ，格数，随机数 ，
+ * 方法 ： 初始化 ， 查找元素  ，创建舞台 ，单机事件 ，绘制
+ */
+
+
+function Game(id) {
+    this.width= "" ;
+    this.height="" ;
+    this.id = id ;
+    this.color ='' ;
+    this.shuo = 8;
+    this.hangshuo ='';
+    this.randIndex = [];
+    this.stage = '' ;
+    this.changeNumber = 40;
+    this.init();
+    this.rect()
+}
+
+Game.prototype ={
+    init : function () {
+        var canvas = document.getElementById(this.id);
+        this.width = canvas.width ;
+        this.height = canvas.height;
+        this.stage = new createjs.Stage(this.id);
+
+        console.log(this.stage)
+    },
+    randNum : function (num) {
+        return Math.floor(Math.random()*num)
+    },
+    randColor : function () {
+        var r = this.randNum(255);
+        var g = this.randNum(255);
+        var b = this.randNum(255);
+
+        return this.color = 'rgb('+r+','+g+','+b+')'
+    },
+    oneRandColor :function (num) {
+        var r = this.randNum(255-num);
+        var g = this.randNum(255-num);
+        var b = this.randNum(255-num);
+
+        return this.color = 'rgb('+r+','+g+','+b+')'
+    },
+    rect : function () {
+        var that = this;
+        this.changeNumber -= this.randNum(5);
+        var width  = this.width / this.shuo ;
+
+        var height = this.height / this.shuo;
+        this.randIndex = [this.randNum(this.shuo) , this.randNum(this.shuo)];
+        this.color = [this.randNum(255),this.randNum(255),this.randNum(255)];
+        for (var i = 0; i<this.shuo ;i++){
+            for(var j= 0 ; j<this.shuo ;j++){
+                var shape = new createjs.Shape();
+                if(this.randIndex[0] == i && this.randIndex[1]==j){
+
+                    var color1 = 'rgb(' + (this.color[0] - this.changeNumber)  + ',' + (this.color[1] -this.changeNumber) + ',' + (this.color[2] - this.changeNumber) + ')';
+
+                    shape.graphics.beginFill(color1).drawRect(i * width, j * height, width - 1, height - 1);
+
+                    this.stage.addChild(shape);
+
+                    shape.addEventListener('click',function () {
+                        that.shuo++;
+                        that.rect();
+                        that.result();
+                    })
+                }else {
+                    shape.graphics.beginFill('rgb(' + (this.color[0])  + ',' + (this.color[1]) + ',' + (this.color[2] ) + ')').drawRect(i*width , j*height ,width-1 ,height-1);
+                    this.stage.addChild(shape);
+                }
+            }
+        }
+
+        this.stage.update()
+    },
+    result: function () {
+        console.log(this.randIndex);
+    }
+};

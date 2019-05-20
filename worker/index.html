@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="width:100px;height:100px;"></div>
+
+<script>
+    // document.querySelector('div').onclick=function(){
+    //     console.log('hello world');
+    // }
+    // function fibonacci(n){
+    //     return n<2?n:arguments.callee(n-1)+arguments.callee(n-2);
+    // }
+    // console.log(fibonacci(38));
+
+
+    var worker=new Worker('worker.js');
+    console.log(worker)
+    worker.postMessage(40);
+    worker.onmessage=function(event){
+        var data=event.data;
+        console.log(data)
+    };
+    worker.onerror=function(event){
+        console.log(event.fileName,event.lineo,event.message);
+    };
+
+</script>
+
+</body>
+</html>

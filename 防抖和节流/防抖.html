@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防抖</title>
+</head>
+<body>
+
+<input type="text" id="inp">
+
+<script>
+    //
+    <!-- n 秒内函数只会执行一次，如果 n 秒内高频事件再次被触发，则重新计算时间；-->
+    //       思路：
+    // 每次触发事件时都取消之前的延时调用方法： 比如生活中的坐公交，就是一定时间内，如果有人陆续刷卡上车，司机就不会开车。只有别人没刷卡了，司机才开车。
+
+    //函数防抖：如果有人进电梯（触发事件），那电梯将在10秒钟后出发（执行事件监听器），这时如果又有人进电梯了（在10秒内再次触发该事件），我们又得等10秒再出发（重新计时）。
+
+
+    function debounce(fn) {
+        var timeout = null ;//创建存放定时器
+
+        return function () {
+            clearTimeout(timeout); // 每当用户输入的时候，把前一个setTimeout 清除掉
+            var _this = this;
+            var args = arguments
+            timeout = setTimeout(function () {
+                fn.apply(_this,args)
+            },500)
+        }
+    }
+
+    function sayHi (x) {
+        console.log("防抖成功")
+    }
+
+    var inp = document.getElementById('inp')
+
+    inp.addEventListener('input' ,debounce(sayHi))
+
+</script>
+
+
+</body>
+</html>

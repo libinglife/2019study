@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		canvas{
+			border: 2px solid pink;
+			margin: 100px auto;
+			display: block;
+		}
+	</style>
+	<body>
+		<canvas id="game"></canvas>
+	</body>
+	<script type="text/javascript">
+		
+		function ggl(){
+			
+			var game = document.getElementById('game');
+			
+			var obj = game.getContext('2d');
+			
+			var imgs = ['刮刮乐/img/1.png','刮刮乐/img/2.png','刮刮乐/img/3.png','刮刮乐/img/4.png','刮刮乐/img/5.png','刮刮乐/img/6.png'];
+			
+			var img = imgs[Math.floor(Math.random()*imgs.length)];
+			
+			var pic= new Image;
+			
+			pic.src = img;
+			
+			pic.onload = function(){
+				
+				game.width = this.width;
+				
+				game.height = this.height;
+				
+				game.style.background = 'url('+this.src+')';
+				
+				//填充灰色矩形 
+				
+				obj.fillStyle = 'gray';
+				
+				obj.fillRect(0,0,this.width,this.height);
+				
+				//核心代码 让图层可以覆盖叠加
+				obj.globalCompositeOperation = 'destination-out';
+
+				
+				console.log('图片加载完成');
+				
+				//声明鼠标按下开关
+				
+				var off = 0;
+				
+				var startX = 0;
+				
+				var startY = 0;
+				
+				game.onmousedown = function(e){
+					
+					off = 1;
+					
+					startX = this.offsetLeft;
+					
+					startY = this.offsetTop;
+					
+				}
+				
+				game.onmouseup = function(e){
+					
+					off = 0;
+					
+				}
+				
+				game.onmousemove = function(e){
+					
+					if(!off) return;
+					
+					var x = e.clientX - startX;
+					
+					var y = e.clientY - startY;
+					
+					//绘制个圆形
+					obj.beginPath();
+					
+					obj.fillStyle = 'rgba(0,0,0,0.1)';
+					
+					obj.arc(x,y,20,0,2*Math.PI);
+					
+					obj.fill();
+					
+				}
+				
+			};
+			console.log(img)
+			
+		}
+		
+		
+		ggl();
+		
+	</script>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #tabBox input {
+            background: #F6F3F3;
+            border: 1px solid #FF0000;
+        }
+
+        #tabBox .active {
+            background: #E9D4D4;
+        }
+
+        #tabBox div {
+            width: 300px;
+            height: 250px;
+            display: none;
+            padding: 10px;
+            background: #E9D4D4;
+            border: 1px solid #FF0000;
+        }
+    </style>
+</head>
+<body>
+<div id="tabBox">
+    <input type="button" value="游戏" class="active"/>
+    <input type="button" value="旅行"/>
+    <input type="button" value="音乐"/>
+    <div style="display:block;">GTA5、孤岛惊魂</div>
+    <div>澳大利亚、西藏</div>
+    <div>暗里着迷、一生有你</div>
+</div>
+
+<script>
+
+    // <!--方法1 ： 正常写法-->
+    // window.onload =function (ev) {
+    //     var tabBox = document.getElementById('tabBox');
+    //     var tabBtn = tabBox.getElementsByTagName('input');
+    //     var tabDiv = tabBox.getElementsByTagName('div');
+    //
+    //     for (var i =0 ;i<tabBtn.length;i++){
+    //         tabBtn[i].index = i;
+    //         tabBtn[i].onclick = function () {
+    //             for (var j =0 ;j<tabBtn.length;j++){
+    //                 tabBtn[j].className='';
+    //                 tabDiv[j].style.display = "none"
+    //             }
+    //             this.className = 'active';
+    //             tabDiv[this.index].style.display = 'block'
+    //         }
+    //     }
+    // }
+
+    // <!--方法2 ： 不能有函数嵌套，可以有全局变量-->
+
+    //将嵌套在函数里的变量 提到全局
+   /* var tabBtn = null ;
+    var tabDiv = null;
+
+    window.onload = function (ev) {
+        var tabBox = document.getElementById('tabBox');
+        tabBtn = tabBox.getElementsByTagName('input');
+        tabDiv = tabBox.getElementsByTagName('div');
+
+        for(var i =0 ;i<tabBtn.length;i++){
+            tabBtn[i].index= i ;
+            //此处调用函数
+            tabBtn[i].onclick = clickBtn ;
+        }
+    };
+
+    //全局函数
+    function clickBtn() {
+        for (var j = 0; j < tabBtn.length; j++) {
+            tabBtn[j].className = '';
+            tabDiv[j].style.display = "none";
+        }
+        this.className = 'active';
+        tabDiv[this.index].style.display = 'block'
+    }*/
+
+
+   //    <!--方法3 ： 全局的变量变为对象的属性，全局的函数变为对象的方法-->
+
+    window.onload = function (ev) {
+        var tab  = new Tab("tabBox")
+    };
+
+    /**
+     *
+     * @param id 选项卡id以参数的形式传入
+     * @constructor
+     */
+
+    function Tab(id) {
+        var tabBox = document.getElementById(id);
+        this.tabBtn = tabBox.getElementsByTagName('input');
+        this.tabDiv = tabBox.getElementsByTagName('div');
+
+        var _this = this;
+        for (var i = 0 ;i<this.tabBtn.length;i++){
+            this.tabBtn[i].index=i;
+
+            this.tabBtn[i].onclick = function (ev) {
+                var btn = this; //当前点击的btn
+                _this.clickBtn(btn);
+            };
+        }
+    }
+
+    Tab.prototype = {
+        clickBtn : function (btn) {
+
+            console.log(this)
+            for(var j=0;j <this.tabBtn.length;j++){
+                this.tabBtn[j].className='';
+                this.tabDiv[j].style.display = 'none';
+            }
+            btn.className ="active";
+            this.tabDiv[btn.index].style.display = 'block';
+        }
+    }
+
+
+</script>
+</body>
+</html>

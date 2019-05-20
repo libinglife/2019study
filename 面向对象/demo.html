@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #view{
+            /*display: block;*/
+            /*margin: 0 auto;*/
+            border: 1px solid red;
+            color: rgb(255,255,255);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<canvas id="view" width="500" height="500"></canvas>
+<canvas id="view1" width="500" height="500"></canvas>
+<script type="text/javascript" src="js/easeljs-0.8.2.min.js"></script>
+<!--/**
+ * 属性：画布宽度 格数 随机色 舞台 DOM元素
+ * 方法：初始化  查找元素 创建舞台  随机数 单击事件  绘制
+ */-->
+<script type="text/javascript">
+
+
+    function Game(id) {
+        this.color = '';
+        this.shuo = 8;
+        this.stage = '';
+        this.id = id;
+        this.width = '';
+        this.height = '';
+        /*this.color = 'rgb(' + this.rand(255) + ',' + this.rand(255) + ',' + this.rand(255) + ')';*/
+//				this.color=[];
+        this.randIndex = [];
+        this.hangshuo = '';
+        this.rand();
+        this.changeNumber=40;
+//				this.randColor();
+        this.init();
+        this.rect();
+
+
+    }
+
+    Game.prototype = {
+        rand: function (num) {
+            return Math.floor(Math.random() * num)
+        },
+        randColor: function () {
+            return	this.color = 'rgb(' + this.rand(255) + ',' + this.rand(255) + ',' + this.rand(255) + ')';
+
+        },
+        init: function () {
+            var canvas = document.getElementById(this.id);
+            this.width = canvas.width;
+            this.height = canvas.height;
+            this.stage = new createjs.Stage(this.id);
+        },
+
+        rect: function () {
+            this.changeNumber-=this.rand(5);
+
+            this.stage.removeAllChildren();
+            var width = this.width / this.shuo;
+            var height = this.height / this.shuo;
+            this.randIndex = [this.rand(this.shuo), this.rand(this.shuo)];
+            this.color = [this.rand(255),this.rand(255),this.rand(255)];
+            console.log(this.randIndex);
+            var that=this;
+            for (var i = 0; i < this.shuo; i++) {
+
+                for (var j = 0; j < this.shuo; j++) {
+
+                    var shape = new createjs.Shape();
+
+                    if (this.randIndex[0] == i && this.randIndex[1] == j) {
+                        shape.graphics.beginFill('rgb(' + (this.color[0]-this.changeNumber)  + ',' + (this.color[1] -this.changeNumber) + ',' + (this.color[2] -this.changeNumber) + ')').drawRect(i * width, j * height, width - 1, height - 1);
+
+                        this.stage.addChild(shape);
+                        shape.addEventListener('click',function(){
+                            that.shuo++;
+
+                            that.rect();
+
+                            that.dayin();
+                        })
+                    }
+                    else {
+                        shape.graphics.beginFill('rgb(' + this.color[0]  + ',' + this.color[1]  + ',' + this.color[2]  + ')').drawRect(i * width, j * height, width - 1, height - 1);
+                        this.stage.addChild(shape);
+                    }
+                    this.stage.update();
+                }
+
+            }
+
+        },
+        dayin:function(){
+
+            console.log(this.randIndex);
+
+        }
+
+    };
+
+    var one = new Game('view');
+    var two = new Game('view1');
+
+</script>
+</body>
+</html>

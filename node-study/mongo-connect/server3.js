@@ -72,10 +72,6 @@ app.get('/delete' ,function (req,res,next) {
     })
 })
 
-
-
-
-
 app.listen(8001 , '0.0.0.0' ,()=>{
     console.log(`成功打开-----------39.105.195.48:8001`);
 });

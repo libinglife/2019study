@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节流</title>
+</head>
+<body>
+
+<script>
+    // 节流： 在 n 秒内只会执行一次，所以节流会稀释函数的执行频率。
+    // 思路：每次触发事件时都判断当前是否有等待执行的延时函数。
+
+    //函数节流 ：保证如果电梯第一个人进来后，10秒后准时运送一次，这个时间从第一个人上电梯开始计时，不等待，如果没有人，则不运行。
+    function throttle(fn) {
+        var canRun = true ;// 声明是否可以执行的标记
+        return function () {
+            if(!canRun) return ; // 此处即为开关
+            canRun = false; //立即设置为false
+            var  _this =this;
+            var args = arguments;
+            setTimeout(function () {
+                fn.apply(_this,args);
+                canRun = true ;
+            } ,500)
+        }
+    }
+
+    function sayHi(ev , x) {
+        console.log("节流成功")
+        console.log(ev.target.innerWidth);
+    }
+    window.addEventListener('resize',throttle(sayHi))
+
+
+</script>
+</body>
+</html>
