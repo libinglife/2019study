@@ -1,0 +1,1 @@
+console.log("gm node修改图片")

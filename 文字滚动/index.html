@@ -67,16 +67,16 @@
 
 
         //渲染方法
-        xuanRan(arr);
+        xuanRanHtml(arr);
 
 
 
         $('#add').click(function() {
             console.log("执行")
-            $('.scrollUl').append("<li>增加一条</li>");
+            $('.scrollUl').prepend("<li>增加一条</li>");
         })
 
-        function xuanRan(data) {
+        function xuanRanHtml(data) {
 
             if (data.length == 0) {
                 return;
