@@ -17,14 +17,14 @@ Object.defineProperty(obj,"newKey" ,{
 });
 
 for (var key in obj){ //遍历对象
-    console.log(key +"=="+ obj[key])
+    // console.log(key +"=="+ obj[key])
 }
 
 var keys =Object.keys(obj);
 
 keys.map((key , index)=>{  //key 值 ，index 索引
-    console.log(index +key+"="+obj[key])
+    // console.log(index +key+"="+obj[key])
 })
 
-console.log(keys)
-console.log(obj)
+// console.log(keys)
+// console.log(obj)

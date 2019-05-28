@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<button>请求测试</button>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script>
+    $("button").click(function () {
+        $.ajax({
+            type:'get',
+            url:'/api/common/ChildrenDayTinyAngelRefly/getHostRankAllStar',
+            success:function (res) {
+                console.log(res);
+            },
+            error:function (err) {
+                console.log(err);
+            }
+        })
+    })
+</script>
 </body>
 </html>

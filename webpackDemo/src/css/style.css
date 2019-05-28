@@ -5,8 +5,13 @@
     /*background-color: hotpink;*/
 }
 body{
+    opacity: 0;
     color: black;
-    background: brown;
+    background: pink;
     position: fixed;
     font-size: 0.3rem;
+}
+
+button{
+    font-size: 0.24rem;
 }

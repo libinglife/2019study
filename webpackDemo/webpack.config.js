@@ -53,8 +53,15 @@ module.exports= {
         historyApiFallback:true, //不跳转
         inline:true, //实时刷新
         port:8090, //自定义服务监听端口
-        host:'127.0.0.1' // 通过localhost访问
-
+        host:'127.0.0.1', // 通过localhost访问
+        // host: 'lb.renren.com',
+        // proxy: {
+        //     "/api": {
+        //         target: 'http://127.0.0.1:8091/',
+        //         pathRewrite: { '^/api': '' },
+        //         changeOrigin: true
+        //     }
+        // }
     },
     plugins:[
         new CleanWebpackPlugin(['dist']), //清除上一次打包的老文件

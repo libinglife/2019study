@@ -1,9 +1,9 @@
 //main.js
-var style =require('../style.css');
-require('../style2.css')
+var style =require('./css/style.css');
+require('./css/style2.css')
 
 import remInit from './pub/rem'
-const greeter = require('./Greeter.js');
+const greeter = require('./pub/greeter.js');
 
 remInit()
 document.querySelector("#root").appendChild(greeter());
@@ -17,8 +17,8 @@ document.querySelector("#root").appendChild(greeter());
 
 import {str , arr ,fun} from './pub/export';
 import * as types from './pub/export';
-console.log(str)
-console.log(arr)
-console.log(fun())
+// console.log(str)
+// console.log(arr)
+// console.log(fun())
 // console.log(types)
 
