@@ -1,3 +1,6 @@
+/**
+ * Created by Libing on 2019/5/28 18:39
+ */
 var WINDOW_WIDTH = 1024;
 var WINDOW_HEIGHT = 768;
 var RADIUS = 8;
@@ -177,6 +180,4 @@ function renderDigit( x , y , num , cxt ){
 
                 cxt.fill()
             }
-}/**
- * Created by Libing on 2019/5/28 18:39
- */
+}
