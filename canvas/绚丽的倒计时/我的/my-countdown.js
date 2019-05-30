@@ -1,4 +1,16 @@
-var R = 18;
+var R = 4; //半径
+var MARGIN_TOP = 60;
+var MARGIN_LEFT = 30;
+
+var WINDOW_WIDTH = 1024;
+var WINDOW_HEIGHT = 768;
+
+
+var date = new Date();
+
+
+var curShowTimeSeconds = 0; //秒数
+
 
 window.onload = function() {
 
@@ -6,17 +18,63 @@ window.onload = function() {
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext("2d");
 
-    canvas.width = 800;
-    canvas.height = 600;
+    canvas.width = WINDOW_WIDTH;
+    canvas.height = WINDOW_HEIGHT;
 
-    renderDigit(context, 10, 20, 1);
-    renderDigit(context, 360, 20, 2);
+
+
+
+
+    setInterval(function() {
+        curShowTimeSeconds = getCurrentTimeSeconds();
+        render(context);
+    }, 50)
+}
+
+function getCurrentTimeSeconds() {
+    var curTime = new Date();
+    var resTime = curTime.getHours() * 3600 + curTime.getMinutes() * 60 + curTime.getSeconds();
+    console.log(resTime);
+    return resTime;
 }
 
 
 
+function render(cxt) {
 
-// 绘制数字
+    cxt.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+
+    var hours = parseInt(curShowTimeSeconds / 3600);
+
+    var minutes = parseInt((curShowTimeSeconds - hours * 3600) / 60);
+    var seconds = curShowTimeSeconds % 60;
+
+
+    // 绘制小时
+    renderDigit(cxt, MARGIN_LEFT, MARGIN_TOP, parseInt(hours / 10));
+    renderDigit(cxt, MARGIN_LEFT + 15 * (R + 1), MARGIN_TOP, parseInt(hours % 10));
+    // 绘制冒号
+    renderDigit(cxt, MARGIN_LEFT + 30 * (R + 1), MARGIN_TOP, 10);
+
+    // 绘制分钟
+    renderDigit(cxt, MARGIN_LEFT + 39 * (R + 1), MARGIN_TOP, parseInt(minutes / 10));
+    renderDigit(cxt, MARGIN_LEFT + 54 * (R + 1), MARGIN_TOP, parseInt(minutes % 10));
+
+    // 绘制冒号
+    renderDigit(cxt, MARGIN_LEFT + 69 * (R + 1), MARGIN_TOP, 10);
+
+    //绘制秒数
+    renderDigit(cxt, MARGIN_LEFT + 78 * (R + 1), MARGIN_TOP, parseInt(seconds / 10));
+    renderDigit(cxt, MARGIN_LEFT + 93 * (R + 1), MARGIN_TOP, parseInt(seconds % 10));
+
+
+
+
+
+}
+
+
+// 绘制一个数字的封装
 function renderDigit(cxt, left, top, num) {
 
     cxt.fillStyle = 'rgb(0,102,153)';

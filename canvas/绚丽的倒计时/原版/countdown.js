@@ -144,8 +144,8 @@ function render( cxt ){
     cxt.clearRect(0,0,WINDOW_WIDTH, WINDOW_HEIGHT);
 
     var hours = parseInt( curShowTimeSeconds / 3600);
-    var minutes = parseInt( (curShowTimeSeconds - hours * 3600)/60 )
-    var seconds = curShowTimeSeconds % 60
+    var minutes = parseInt( (curShowTimeSeconds - hours * 3600)/60 );
+    var seconds = curShowTimeSeconds % 60;
 
     renderDigit( MARGIN_LEFT , MARGIN_TOP , parseInt(hours/10) , cxt )
     renderDigit( MARGIN_LEFT + 15*(RADIUS+1) , MARGIN_TOP , parseInt(hours%10) , cxt )
