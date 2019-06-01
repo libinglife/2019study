@@ -1,6 +1,6 @@
 var R = 4; //半径
 var MARGIN_TOP = 60;
-var MARGIN_LEFT = 30;
+var MARGIN_LEFT = 130;
 
 var WINDOW_WIDTH = 1024;
 var WINDOW_HEIGHT = 768;
@@ -10,7 +10,9 @@ var WINDOW_HEIGHT = 768;
 var curShowTimeSeconds = 0; //秒数
 
 var balls = [];
-const colors = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", "#FFBB33", "#FF8800", "#FF4444", "#CC0000"]
+const colors = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", "#FFBB33", "#FF8800", "#FF4444", "#CC0000"];
+
+var t =0 ;
 
 window.onload = function() {
 
@@ -30,7 +32,8 @@ window.onload = function() {
 
         render(context);
         update();
-    }, 30)
+    }, 30);
+    // update();
 }
 
 // 获取当前的时间
@@ -54,7 +57,15 @@ function update() {
     var curSeconds = curShowTimeSeconds % 60;
 
 
+    // if(t==0){
+    //     addBalls(MARGIN_LEFT + 93 * (R + 1), MARGIN_TOP, parseInt(2), nextSeconds);
+    //     t++;
+    // }
+
+
+    // if (false) {
     if (nextSeconds != curSeconds) {
+
 
         if (parseInt(curHours / 10) != parseInt(nextHours / 10)) {
             addBalls(MARGIN_LEFT + 0, MARGIN_TOP, parseInt(nextHours / 10), nextSeconds);
@@ -71,12 +82,12 @@ function update() {
         }
 
         if (parseInt(curSeconds / 10) != parseInt(nextSeconds / 10)) {
-            // addBalls(MARGIN_LEFT + 78 * (R + 1), MARGIN_TOP, parseInt(nextSeconds / 10), nextSeconds);
+            addBalls(MARGIN_LEFT + 78 * (R + 1), MARGIN_TOP, parseInt(nextSeconds / 10), nextSeconds);
         }
         if (parseInt(curSeconds % 10) != parseInt(nextSeconds % 10)) {
 
-            // addBalls(MARGIN_LEFT + 93 * (R + 1), MARGIN_TOP, parseInt(nextSeconds % 10), nextSeconds);
-            addBalls(MARGIN_LEFT + 93 * (R + 1), MARGIN_TOP, parseInt(2), nextSeconds);
+            addBalls(MARGIN_LEFT + 93 * (R + 1), MARGIN_TOP, parseInt(nextSeconds % 10), nextSeconds);
+            // addBalls(MARGIN_LEFT + 93 * (R + 1), MARGIN_TOP, parseInt(2), nextSeconds);
         }
 
         // addBalls(MARGIN_LEFT + 0, MARGIN_TOP, parseInt(nextHours / 10));
@@ -101,32 +112,25 @@ function update() {
 function updateBalls(theTime) {
 
 
+    var length = balls.length-1;
     for (var i = 0; i < balls.length; i++) {
 
-
-
-        balls[i].x += balls[i].vx;
+        balls[length-i].x += balls[length-i].vx;
 
         var c = 1.0; //摩擦阻力
 
-        if (balls[i].y + R + balls[i].vy >= WINDOW_HEIGHT) {
-            // c = (WINDOW_HEIGHT - (balls[i].y + R)) / balls[i].vy;
-        }
+        // if (balls[i].y + R + balls[i].vy >= WINDOW_HEIGHT) {
+        //     // c = (WINDOW_HEIGHT - (balls[i].y + R)) / balls[i].vy;
+        // }
 
 
-        balls[i].y += parseInt(balls[i].vy);
+        if (balls[length-i].y + R +balls[length-i].vy>= WINDOW_HEIGHT) {
 
-        balls[i].vy += balls[i].g * c;
-
-
-        if (balls[i].y + R > WINDOW_HEIGHT) {
-
-            console.log(balls[i].y);
             for (var j = 0; j < balls.length; j++) {
-                if (balls[i].mTimes == balls[j].mTimes) {
+                if (balls[length-i].mTimes == balls[length-j].mTimes) {
                     // balls[i].y = balls[i].y;
                     // console.log(balls[i].y);
-                    balls[j].vy = -Math.abs(balls[j].vy) * 0.7;
+                    balls[length-j].vy = -(Math.abs(balls[length-j].vy) * 0.7);
 
                 }
             }
@@ -134,7 +138,9 @@ function updateBalls(theTime) {
             // balls[i].vy = -Math.abs(balls[i].vy) * 0.75;
         }
 
+        balls[length-i].y += (balls[length-i].vy);
 
+        balls[length-i].vy += (balls[length-i].g * c);
 
 
     }
