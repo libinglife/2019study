@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<button>md转化html</button>
+<!--<script src="https://cdn.rawgit.com/showdownjs/showdown/<version tag>/dist/showdown.min.js"></script>-->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/showdown/1.9.0/showdown.js"></script>
+<script>
+    var converter = new showdown.Converter();
+    $('button').click(function () {
+        $.ajax({
+            type:'get',
+            url:'./test.md',
+            success:function (res) {
+                console.log(res);
+                var html = converter.makeHtml(res);
+                $('body').html(html)
+            }
+        })
+    });
+
+
+
+
+
+
+
+
+
+
+</script>
 </body>
 </html>
