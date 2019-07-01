@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>裁剪 图片并上传</title>
+    <link  href="public/cropper.css" rel="stylesheet">
+    <style>
+        .box{
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        .smallImgBox{
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+
+            width: 160px;
+            height: 90px;
+            overflow: hidden;
+        }
+
+        .cavans {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 用一个块元素(容器)包装图像或画布元素 -->
+<div class="box">
+    <img id="image" src="img/picture.jpg">
+</div>
+<div class="smallImgBox"></div>
+<button id="getImgData">获取</button>
+<div class="cavans"></div>
+
+<script src="http://s.xnimg.cn/a94371/wap/mobile/2017activity/listingPage/wap-page/js/jquery-3.2.1.min.js"></script>
+<script src="public/cropper.js"></script>
+<script>
+    $('#image').cropper({
+        aspectRatio: 16 / 9,
+        viewMode:3,
+        preview:'.smallImgBox',
+
+        ready:function (e) {
+            $(this).cropper('crop');
+            console.log(e)
+        },
+        crop: function (e) {
+            console.log(e);
+        },
+    });
+
+    $("#getImgData").on("click", function () {
+        // console.log($('#image').cropper('getImageData'));
+        // console.log($('#image').cropper('getCanvasData'));
+        // var cas=$('#image').cropper('getCroppedCanvas');
+        //
+        // var base64url=cas.toDataURL('image/jpeg');
+        //
+        // cas.toBlob(function (e) {
+        //     console.log(e);  //生成Blob的图片格式
+        // });
+        // $('.cavans').html(cas)  //在body显示出canvas元素
+
+        $('#image').cropper('getCroppedCanvas').toBlob(function (blob) {
+
+            var formData = new FormData();
+            formData.append('croppedImage', blob);
+            console.log(formData);
+            $.ajax({
+                url:'http://127.0.0.1:8088/upload/img',
+                type:'POST',
+                data: formData,
+                dataType : "json",
+                processData: true,
+                success: function () {
+                    console.log('Upload success');
+                },
+                error: function () {
+                    console.log('Upload error');
+                }
+            });
+
+
+
+
+
+
+        })
+
+
+
+    })
+</script>
+</body>
+</html>
