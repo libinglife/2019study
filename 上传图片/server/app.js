@@ -8,12 +8,12 @@ let app = express();
 
 let storage = multer.diskStorage({
     destination :function(req , file ,cb){
-
-        cb (null , './public/uploads')
+        cb (null , './public/uploads');
     },
     filename : function (req , file ,cb){
           console.log(file)
-        cb (null , `${Date.now()}-${file.originalname}`+'.png')
+        cb (null , `${Date.now()}-${file.originalname}`+'.png');
+          console.log("------------");
     }
 })
 
@@ -47,11 +47,10 @@ app.all('*' ,function(req,res,next){
     }
 });
 
-console.log(upload);
 //文件上传请求处理 ，upload.array 支持多文件上传，第二个参数是上传文件数目
 
-app.post('/upload/img', upload.array('img', 2), function (req, res) {
-// app.post('/upload/img', upload.single('fileid'), function (req, res) {
+app.post('/upload/img', upload.array('file', 2), function (req, res) {
+
     console.log(req);
     //读取上传信息
     let files =req.files;
@@ -65,7 +64,7 @@ app.post('/upload/img', upload.array('img', 2), function (req, res) {
         result.code =0 ;
         result.data ={
             url : files[0].path
-        }
+        };
         result.msg ="上传成功"
     }
 

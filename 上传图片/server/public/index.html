@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <title>裁剪 图片并上传</title>
     <link  href="static/cropper.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
     <style>
         .box{
-            width: 600px;
-            height: 400px;
-            margin: 0 auto;
+            width: 300px;
+            height: 200px;
+            /* margin: 0 auto; */
+            border: 1px solid red;
         }
         .smallImgBox{
             position: absolute;
@@ -23,35 +26,62 @@
         .cavans {
             overflow: hidden;
         }
+        .avatar-uploader .el-upload {
+            border: 1px dashed #d9d9d9;
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .avatar-uploader .el-upload:hover {
+            border-color: #409EFF;
+        }
+        .avatar-uploader-icon {
+            font-size: 28px;
+            color: #8c939d;
+            width: 178px;
+            height: 178px;
+            line-height: 178px;
+            text-align: center;
+        }
+        .avatar {
+            width: 178px;
+            height: 178px;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
 <!-- 用一个块元素(容器)包装图像或画布元素 -->
 <div class="box">
-    <img id="image" src="static/img/picture.jpg">
+    <img id="image" src="">
 </div>
+<div id="app">
+    <el-upload
+            class="avatar-uploader"
+            :show-file-list="false"
+            :on-success="handleAvatarSuccess"
+            :before-upload="beforeAvatarUpload">
+        <img v-if="imageUrl" :src="imageUrl" class="avatar">
+        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+    </el-upload>
+    <input class="yuanShengInput" name="file" type="file">
+</div>
+
+
+
 <div class="smallImgBox"></div>
 <button id="getImgData">获取</button>
 <div class="cavans"></div>
-
+<script src="http://s.xnimg.cn/a93557/wap/mobile/recharge/timeslong/vue.min.js"></script>
 <script src="http://s.xnimg.cn/a94371/wap/mobile/2017activity/listingPage/wap-page/js/jquery-3.2.1.min.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 <script src="static/js/jquery.form.js"></script>
 <script src="static/cropper.js"></script>
 <script>
-    $('#image').cropper({
-        aspectRatio: 16 / 9,
-        viewMode:3,
-        preview:'.smallImgBox',
 
-        ready:function (e) {
-            $(this).cropper('crop');
-            console.log(e)
-        },
-        crop: function (e) {
-            console.log(e);
-        },
-    });
 
     $("#getImgData").on("click", function () {
         // console.log($('#image').cropper('getImageData'));
@@ -68,8 +98,7 @@
         $('#image').cropper('getCroppedCanvas').toBlob(function (blob) {
             console.log(blob)
             var formData = new FormData();
-            formData.append('img', blob);
-            console.log(formData);
+            formData.append('file', blob);
             $.ajax({
                 url:'http://127.0.0.1:8088/upload/img',
                 type:'POST',
@@ -77,8 +106,8 @@
                 processData: false,
                 contentType : false,
                 dataType : "json",
-                success: function () {
-                    console.log('Upload success');
+                success: function (data) {
+                    console.log(data);
                 },
                 error: function () {
                     console.log('Upload error');
@@ -88,10 +117,96 @@
 
 
         })
+    });
+
+    function fileOrBlobToDataUrl(obj,cb) {
+        var file = new FileReader();
+        file.readAsDataURL(obj);
+        file.onload = function (e) {
+            cb(e);
+        }
+    }
 
 
+    new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                imageUrl: ''
+            }
+        },
+        methods: {
+            handleAvatarSuccess(res, file) {
+                console.log(res)
+                console.log(file)
+                this.imageUrl = URL.createObjectURL(file.raw);
+                console.log(this.imageUrl);
+                $('#image').attr('src',  this.imageUrl);
+                $('.cropper-canvas img').attr('src',  this.imageUrl);
+                $('.cropper-view-box img').attr('src',  this.imageUrl);
 
+                $('#image').cropper({
+                    aspectRatio: 3 / 2,
+                    viewMode:3,
+                    preview:'.smallImgBox',
+
+                    ready:function (e) {
+                        $('#image').cropper('crop');
+                        // console.log(e)
+                    },
+                    crop: function (e) {
+                        // console.log(e);
+                    },
+                });
+
+            },
+            beforeAvatarUpload(file) {
+                console.log(file)
+                const isJPG = file.type === 'image/jpeg';
+                const isLt2M = file.size / 1024 / 1024 < 2;
+
+                // if (!isJPG) {
+                //     this.$message.error('上传头像图片只能是 JPG 格式!');
+                // }
+                if (!isLt2M) {
+                    this.$message.error('上传头像图片大小不能超过 2MB!');
+                }
+                // return isJPG && isLt2M;0
+                return  isLt2M;
+            }
+        }
     })
+
+     $('.yuanShengInput').change(function (ev) {
+         console.log(ev);
+         var file = ev.target.files[0];
+         var reader = new FileReader();
+         reader.readAsDataURL(file);
+
+         reader.onload =function (e) {
+             console.log(e.target.result)
+             var srcUrl = e.target.result
+             $('#image').attr('src', srcUrl);
+             $('.cropper-canvas img').attr('src', srcUrl);
+             $('.cropper-view-box img').attr('src',srcUrl);
+
+             $('#image').cropper({
+                 aspectRatio: 3 / 2,
+                 viewMode:3,
+                 preview:'.smallImgBox',
+
+                 ready:function (e) {
+                     $('#image').cropper('crop');
+                     // console.log(e)
+                 },
+                 crop: function (e) {
+                     // console.log(e);
+                 },
+             });
+         }
+
+
+     })
 </script>
 </body>
 </html>
