@@ -30,7 +30,7 @@
 
 <img class="photo photo-img" src="" alt="">
 <form id="img_form"  action="" method="post" enctype="multipart/form-data">
-    <input name="img" type="file" id="img-input"  onchange="upLoadImg()" />
+    <input name="file" type="file" id="img-input"  onchange="upLoadImg()" />
 </form>
 
 
@@ -53,26 +53,18 @@
                 }
             }
         };
-
-
         // console.log(form.ajaxForm())
         form.ajaxSubmit(option);
 
-
-
         var file = $('#img-input')[0].files[0];
         var reader = new FileReader();
-        // console.log(reader)
-        // console.log(file)
 
         reader.onload = function (e) {
             // console.log(e);
             var imgUrl = e.target.result;
             $('.photo-img').attr('src',imgUrl)
         };
-
         reader.readAsDataURL(file)
-
     }
 
 

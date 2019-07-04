@@ -55,7 +55,7 @@
 
 <!-- 用一个块元素(容器)包装图像或画布元素 -->
 <div class="box">
-    <img id="image" src="">
+    <img id="image" src="./static/img/picture.jpg">
 </div>
 <div id="app">
     <el-upload
@@ -81,6 +81,20 @@
 <script src="static/js/jquery.form.js"></script>
 <script src="static/cropper.js"></script>
 <script>
+
+    $('#image').cropper({
+        aspectRatio: 3 / 2,
+        viewMode:3,
+        preview:'.smallImgBox',
+
+        ready:function (e) {
+            $('#image').cropper('crop');
+            // console.log(e)
+        },
+        crop: function (e) {
+            // console.log(e);
+        },
+    });
 
 
     $("#getImgData").on("click", function () {

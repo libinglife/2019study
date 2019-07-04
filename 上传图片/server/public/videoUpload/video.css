@@ -1,0 +1,132 @@
+#content{border: 1px solid saddlebrown;padding: 16px;border-radius: 2px}
+
+.list {top: 15px;width: 140px;
+    height: 40px; border:1px solid #0082E6;
+    display:inline-block;
+    border-radius: 2px;position: relative; line-height: 40px;}
+#file{position: absolute;opacity: 0;color:white;width: 100%;height: 100%;z-index: 100;}
+.list span{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    line-height: 40px;
+    position: absolute;
+    color: #0082E6;
+}
+._p .tips{
+    color: #676a6c;
+}
+video{
+    margin-top: 8px;
+    border-radius: 4px;
+}
+._p{
+    margin: 14px;
+}
+._p input{
+    display: inline-block;
+    width: 70%;
+    margin-left: 6px;
+}
+._p span{
+    font-size: 15px;
+}
+.el-icon-video-camera {
+    font-size: 23px;
+    position: relative;
+    top: 3px;
+}
+.el-upload-list__item-status-label .el-icon-upload-success{
+    position: relative;
+    top: 9px;
+    font-size: 23px;
+}
+.el-upload-list__item .el-icon-close  {
+    top: 9px;
+    font-size: 23px;
+    color: #f80d50 ;
+}
+.videoName{
+    position: relative;
+    top: -2px;
+}
+.delete__text{
+    font-size: 16px;
+    color: #f80d50 ;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    line-height: 1;
+}
+/*基本信息*/
+
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.el-upload {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    outline: 0;
+}
+
+
+[class*=" el-icon-"], [class^=el-icon-] {
+    font-family: element-icons!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*96:60*/
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 288px;
+    height: 180px;
+    line-height: 180px;
+    text-align: center;
+}
+#imgFile .el-upload__input {
+    display: none;
+}
+#imgFile label{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}
+
+/*裁切框*/
+.box{
+    display: inline-block;
+    width: 460px;
+    height:288px;
+    /* margin: 0 auto; */
+    border: 1px solid red;
+    vertical-align: top;
+    margin-right:50px ;
+    /*width: 300px;*/
+    /*height: 200px;*/
+    /*border: 1px solid red;*/
+
+
+}
+.smallImgBox{
+    display: inline-block;
+    width: 288px;
+    height: 180px;
+    overflow: hidden;
+    border: 1px solid red;
+}
