@@ -132,25 +132,11 @@ function uploadFailed(evt) {
 
 
 //------------------------------图片上传-----------------------------
-// $('#myModal').modal() //模态框
-//
-// $('#image').cropper({
-//     aspectRatio: 96 / 60,
-//     viewMode:3,
-//     preview:'.smallImgBox',
-//
-//     ready:function (e) {
-//         $('#image').cropper('crop');
-//         // console.log(e)
-//     },
-//     crop: function (e) {
-//         // console.log(e);
-//     },
-// });
 
 var options = {
     aspectRatio: 16 / 9,
     preview: '.smallImgBox',
+    viewMode:1,
     ready: function (e) {
         console.log(e.type);
     },
@@ -168,52 +154,94 @@ var options = {
     zoom: function (e) {
         console.log(e.type, e.detail.ratio);
     }
-}
+};
+var cropper ;//裁剪对象
 $('#fileImg').change(function (ev) {
-    console.log(ev);
-    var file = ev.target.files[0];
-    var reader = new FileReader();
 
-    $('#myModal').modal() //模态框
+    var file = ev.target.files[0];
+    console.log(file);
+    var size = file.size;
+    var maxSize = 5 *1024*1024 ; //转化为字节
+
+
+
+    var img_reader = new FileReader();
+    img_reader.readAsDataURL(file);
+    img_reader.onload =function (e) {
+        var img = new Image();
+        img.src = e.target.result;
+        img.onload=function () {
+            var width = this.width;
+            var height = this.height;
+            console.log(width);
+            console.log(height);
+            if(width>1420||height>800){
+                alert("最大宽高为1420*800");
+                return;
+            }else if(width<710||height<400){
+                alert("最小宽高为710*400");
+                return;
+            }
+        }
+    };
+
+    if(size>maxSize){//判断是否大于5M
+        alert("最大为5M");
+        return;
+    }
+
+
+
+    var reader = new FileReader();
+    var image = $('#image');
+    image.attr('src', '');
+    $('#myModal').modal("show") //模态框显示
 
     setTimeout(function () {
         reader.readAsDataURL(file);
         reader.onload =function (e) {
-            $('#feature').val('') // 再次上传同一文件的时候, 又会触发onchange事件
+            $('#fileImg').val('') // 再次上传同一文件的时候, 又会触发onchange事件
 
+            if(cropper){ //判断是否有创建对象
+                cropper.destroy(); //销毁
+            }
             var srcUrl = e.target.result;
-            $('#image').attr('src', srcUrl);
-
-            $('.cropper-canvas img').attr('src', srcUrl);
-            $('.cropper-view-box img').attr('src',srcUrl);
-            $('.smallImgBox img').attr('src',srcUrl);
-
-         /*   $('#image').cropper({
-                aspectRatio:96 / 60,
-                viewMode:3,
-                preview:'.smallImgBox',
-                autoCrop:true,
-                movable:true,
-                scalable:true,
-                zoomable:true,
-                zoomOnWheel:true,
-                responsive:false,
-                wheelZoomRatio:true,
-                restore:false,
-                ready:function (e) {
-                    // $('#image').cropper('crop');
-                },
-                crop: function (e) {
-
-                }
-            });*/
-            options
-            var image = $('#image')[0];
-            console.log(image)
-            var cropper = new Cropper(image, options);
+            // console.log(srcUrl)
+            image.attr('src', srcUrl);
+            cropper = new Cropper(image[0], options);
         }
-    },300)
+    },180)
+});
 
+//图片上传 确定按钮
+function imgFileUp() {
 
-
-})
+    console.log(cropper)
+    // var res = $('#image').cropper('getCroppedCanvas');
+    var canvas = cropper.getCroppedCanvas();
+    console.log(canvas)
+    var caiQieUrl = canvas.toDataURL('image/jpeg');
+    console.log(caiQieUrl);
+    cropper.getCroppedCanvas().toBlob(function (blob) {
+        console.log(blob)
+        var formData = new FormData();
+        formData.append('file', blob);
+        $.ajax({
+            url:'http://127.0.0.1:8088/upload/img',
+            type:'POST',
+            data: formData,
+            processData: false,
+            contentType : false,
+            dataType : "json",
+            success: function (data) {
+                console.log(data);
+                $('#myModal').modal('hide');
+                $('#showResImg').attr('src',caiQieUrl);
+                $('.showImgBox').show();
+            },
+            error: function () {
+                console.log('Upload error');
+            }
+        })
+    })
+}

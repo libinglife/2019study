@@ -82,21 +82,31 @@
         <h3 class="base-info">基本信息</h3>
 
         <form>
-
             <div class="form-group">
                 <label >视频封面设置（不超过5M）</label>
-
                 <div class="avatar-uploader">
                     <div id="imgFile" tabindex="0" class= "el-upload el-upload--text">
                         <label for="fileImg"> </label>
                         <i class="el-icon-plus avatar-uploader-icon"></i>
                         <input type="file"  onchange="" id="fileImg"  name="file" class="el-upload__input ">
+
+                        <div class="showImgBox" style="display: none">
+                            <img id="showResImg"  src="" alt="">
+                            <div class="markReselect">
+                               <label for="fileImg">
+                                   <i style="font-size: 22px;vertical-align: text-top;margin-top: -3px;" class="el-icon-upload"></i>
+                                   <span>更换封面</span>
+                               </label>
+                            </div>
+                        </div>
+
+
+                        
+
+                        
                     </div>
                 </div>
             </div>
-
-
-
 
 
             <div class="form-group">
@@ -126,7 +136,7 @@
 
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width: 860px;margin-top: 50px">
+    <div class="modal-dialog" style="width: 870px;margin-top: 50px">
         <div class="modal-content" >
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"
@@ -139,9 +149,18 @@
 
             <div class="modal-body">
                 <!--裁切框-->
-                <div class="box">
-                    <img id="image" src="">
+                <div class="caiQieLeft" >
+                    <div class="box">
+                        <img id="image" src="">
+                    </div>
+                    <p class="reelectFile">
+                        <label for="fileImg">
+                            <i class="el-icon-refresh"></i>
+                            <span>重新选择</span>
+                        </label>
+                    </p>
                 </div>
+
                 <!--预览框-->
                 <div class="smallImgBox"></div>
             </div>
@@ -151,7 +170,7 @@
                 <button type="button" class="btn btn-default"
                         data-dismiss="modal">取消
                 </button>
-                <button type="button"  data-dismiss="modal" class="btn btn-primary">
+                <button type="button" onclick="imgFileUp()"  class="btn btn-primary">
                     确定
                 </button>
             </div>
@@ -186,8 +205,8 @@
 <!--<script src="../../partnerStatic/js/vue.min.js"></script>-->
 
 <!--<script src="../../partnerStatic/js/date/bootstrap-datetimepicker.zh.js"></script>-->
-<!--<script src="../static/cropper.js"></script>-->
-<script src="https://fengyuanchen.github.io/cropperjs/js/cropper.js"></script>
+<script src="../static/cropper.js"></script>
+<script src="../static/cropperXin.js"></script>
 <script src="video.js"></script>
 <!--<%&#45;&#45;<script src="../../partnerStatic/appjs/partnerCtrl/partnerCtrl.js" type="text/javascript"></script>&#45;&#45;%>-->
 <!--<script src="http://s.xnimg.cn/a96521/wap/mobile/a_partnerStatic/appjs/gonghui/gonghuiPlatform.js"></script>-->
