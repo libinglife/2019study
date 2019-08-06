@@ -156,14 +156,18 @@ var options = {
     }
 };
 var cropper ;//裁剪对象
+var isAllow = false ;
 $('#fileImg').change(function (ev) {
 
     var file = ev.target.files[0];
-    console.log(file);
     var size = file.size;
     var maxSize = 5 *1024*1024 ; //转化为字节
 
 
+    if(size>maxSize){//判断是否大于5M
+        alert("最大为5M");
+        return;
+    }
 
     var img_reader = new FileReader();
     img_reader.readAsDataURL(file);
@@ -176,22 +180,27 @@ $('#fileImg').change(function (ev) {
             console.log(width);
             console.log(height);
             if(width>1420||height>800){
+                isAllow = false;
                 alert("最大宽高为1420*800");
                 return;
             }else if(width<710||height<400){
+                isAllow = false;
                 alert("最小宽高为710*400");
-                return;
+                return
             }
+            console.log("执行")
+            //执行
+            doCropsImg (file)
         }
     };
 
-    if(size>maxSize){//判断是否大于5M
-        alert("最大为5M");
-        return;
-    }
 
 
 
+});
+
+//执行截图模态框
+function doCropsImg (file) {
     var reader = new FileReader();
     var image = $('#image');
     image.attr('src', '');
@@ -211,7 +220,8 @@ $('#fileImg').change(function (ev) {
             cropper = new Cropper(image[0], options);
         }
     },180)
-});
+}
+
 
 //图片上传 确定按钮
 function imgFileUp() {
@@ -224,6 +234,7 @@ function imgFileUp() {
     console.log(caiQieUrl);
     cropper.getCroppedCanvas().toBlob(function (blob) {
         console.log(blob)
+        blob.originalname="李兵test";
         var formData = new FormData();
         formData.append('file', blob);
         $.ajax({

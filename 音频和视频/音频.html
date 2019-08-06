@@ -5,12 +5,40 @@
     <title>音频</title>
 </head>
 <body>
-    <audio src="http://sc1.111ttt.cn:8282/2018/1/03m/13/396131229550.m4a?tflag=1546606800&pin=97bb2268ae26c20fe093fd5b0f04be80#.mp3" controls></audio>
+    <!--<audio src="http://sc1.111ttt.cn:8282/2018/1/03m/13/396131229550.m4a?tflag=1546606800&pin=97bb2268ae26c20fe093fd5b0f04be80#.mp3" controls></audio>-->
+    <video controls id="myVideo" src="https://ks3-cn-beijing.ksyun.com/renrenvideo/10001000000275000355.mp4"></video>
 
+    <script src="http://s.xnimg.cn/a94371/wap/mobile/2017activity/listingPage/wap-page/js/jquery-3.2.1.min.js"></script>
     <script>
-        var audio = document.querySelector("audio");
-        var audio1 = document.getElementsByTagName("audio");
-        console.log(audio1)
+        var video1 = document.getElementsByTagName("video");
+        var myVideo=  $('#myVideo');
+        console.log(myVideo)
+        // setTimeout(function () {
+        //     console.log(myVideo[0].duration)
+        //     console.log(video1[0].duration)
+        // },500)
+
+
+        var src = "https://ks3-cn-beijing.ksyun.com/renrenvideo/10001000000275000355.mp4";
+        var creVideo = document.createElement("video");
+        creVideo.src=src;
+
+        setTimeout(function () {
+           console.log($(creVideo)[0].duration)
+        },500);
+
+
+        var arr = [{a:'1'},{a:'2'}];
+
+        test =arr.map(function (item ,index) {
+            item.a = index
+            return index+"hh"
+        });
+
+        console.log(arr);
+        console.log(test);
+
+
     </script>
 
 </body>

@@ -180,3 +180,7 @@ video{
     overflow: hidden;
     /*border: 1px dashed  darkgrey;*/
 }
+.badge-info{
+    background-color: #1abc9c !important;
+    color: white !important;
+}
