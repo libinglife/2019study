@@ -52,17 +52,28 @@ app.all('*' ,function(req,res,next){
 //     res.end(JSON.stringify(result));
 //
 // });
-app.get('/test',(req,res)=>{
+app.get('/type',(req,res)=>{
     console.log(req.query.text);
+    var types = ['热门','推荐','开心','搞笑'];
+    var labels = ['娱乐','搞笑','美女','舞蹈'];
+
     res.json({
-        code:'1',
-        msg:'接受成功'
+        code:'0',
+        msg:'成功',
+        // types:types,
+        // labels:labels,
+        data: {
+            types,
+            labels
+        }
     })
-})
+});
+
+
 
 
 const server = app.listen(8089,'127.0.0.1',function () {
-    console.log('listening at ==========> http://127.0.0.1:8088')
+    console.log('listening at ==========> http://192.168.40.180:8089')
 });
 
 
