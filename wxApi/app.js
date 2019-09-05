@@ -4,7 +4,16 @@ let express = require('express');
 let multer = require('multer') ;
 let bodyParse = require('body-parser');
 
+let https = require('https');
+let qs  = require('querystring');
+var request = require('request');
+
 let app = express();
+const param = qs.stringify({
+    'grant_type': 'client_credentials',
+    'client_id': 'muKHXZMVR3gKRTeEgFSFrUGf',
+    'client_secret': '3VnVV4f8rQFAdgmzu9QDZRtXtnQtwGgQ'
+});
 
 
 //bodyParse 用来解析post数据
@@ -68,7 +77,6 @@ app.get('/type',(req,res)=>{
         }
     })
 });
-
 
 
 

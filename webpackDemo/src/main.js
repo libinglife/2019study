@@ -7,9 +7,10 @@ const greeter = require('./pub/greeter.js');
 
 remInit()
 document.querySelector("#root").appendChild(greeter());
-
+console.log('哈哈哈')
 // import cookie from './pub/cookie';
-
+var a = '1245';
+console.log(23,a)
 // var cookie = require('./pub/cookie');
 // console.log(cookie);
 // cookie.setCookie("myName" ,"老铁");

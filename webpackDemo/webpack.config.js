@@ -1,24 +1,20 @@
 var path =  require('path');
-var Webpack = require('webpack');
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var ExtractTextPlugin =require('extract-text-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports= {
-    devtool:'eval-source-map',
+    devtool:'inline-source-map',
     // entry:'./src/main.js' , //入口文件
     entry:{
         main:['./src/main.js'],
-        one:['./src/one.js'],
-        two:['./src/two.js'],
-        three:['./src/process.js'],
-    } , //入口文件
-    output:{
-        path:path.resolve(__dirname , 'dist'),
-        filename:'[name].[chunkhash:8].js' //输出文件
-        // filename:'bundle.js' //输出文件
-    },
+        // one:['./src/one.js'],
+        // two:['./src/two.js'],
+        // three:['./src/process.js'],
+
+    } ,
     module:{
       rules:[
           {
@@ -39,7 +35,7 @@ module.exports= {
               // })
               use:[
                   "style-loader" ,
-                  MiniCssExtractPlugin.loader,
+                  // MiniCssExtractPlugin.loader,
                   "css-loader"
               ]
           }
@@ -50,10 +46,13 @@ module.exports= {
 
     devServer: {
         contentBase:"./dist" ,//本地服务器所加载文件的目录
-        historyApiFallback:true, //不跳转
-        inline:true, //实时刷新
-        port:8090, //自定义服务监听端口
+        // historyApiFallback:true, //不跳转
+        // inline:true, //实时刷新
+
         host:'127.0.0.1', // 通过localhost访问
+        port:8090, //自定义服务监听端口
+        hot:true,
+        hotOnly:true,
         // host: 'lb.renren.com',
         // proxy: {
         //     "/api": {
@@ -68,9 +67,9 @@ module.exports= {
         // new ExtractTextPlugin({           //抽离css
         //    filename:'static/css/[name].[chunkhash:8].css'
         // }),
-        new MiniCssExtractPlugin({  // 对应 webpack 4.0 版本
-           filename: "static/css/[name].[chunkhash:8].css"
-        }),
+        // new MiniCssExtractPlugin({  // 对应 webpack 4.0 版本
+        //    filename: "static/css/[name].[chunkhash:8].css"
+        // }),
         // new MiniCssExtractPlugin(  // 对应 webpack 4.0 版本
         //    "static/css/[name].[chunkhash:8].css"
         // ),
@@ -79,6 +78,16 @@ module.exports= {
             filename: 'index.html', //定义出口文件名
             template:"enter.html" //定义入口模板
             //excludeAssets: [/style.*.js/] // exclude style.js or style.[chunkhash].js
-        })
-    ]
+        }),
+        // new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.NamedModulesPlugin()
+    ],
+
+    output:{ //出口文件
+        path:path.resolve(__dirname , 'dist'),
+        filename:'[name].[hash].js' //输出文件
+        // filename:'bundle.js' //输出文件
+    },
 };
