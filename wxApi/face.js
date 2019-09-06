@@ -89,7 +89,7 @@ app.get('/token',(req,res)=>{
 //     });
 // });
 
-//人脸识别接口
+//人脸识别接口node
 
 
 var token = "24.d06ac87a6e15ff3724e212ea3d3b665a.2592000.1570349719.282335-17178623";
@@ -119,6 +119,7 @@ app.post('/face',(req,res)=>{
        })
    });
    req_baidu.write(contents);
+
    req_baidu.end();
 });
 
