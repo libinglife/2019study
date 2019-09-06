@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button class="token">获取token</button>
+
+<input type="file" class="yuanShengInput">
+<img id="image" style="display:block;width: 400px;height: 300px" border="1px solid red" src="" alt="">
+
+
+<button class="face">请求face</button>
+<script src="http://s.xnimg.cn/a94371/wap/mobile/2017activity/listingPage/wap-page/js/jquery-3.2.1.min.js"></script>
+<script>
+
+    $('.token').click(function () {
+        $.ajax({
+            url:'/token',
+            type:'get',
+            data:{},
+            dataType:'json',
+            success:function (res) {
+                console.log(res);
+                // var result  = JSON.parse(res)
+            },
+            error:function (err) {
+                console.log(err)
+            }
+        })
+    })
+
+
+    $('.yuanShengInput').change(function (ev) {
+        console.log(ev);
+        var file = ev.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload =function (e) {
+            console.log(e.target.result)
+            var srcUrl = e.target.result
+            $('#image').attr('src', srcUrl);
+            var formData = new FormData();
+            formData.append('file', srcUrl);
+            $.ajax({
+                url:'http://127.0.0.1:3001/face',
+                type:'POST',
+                data: {
+                    src:'http://a.xnimg.cn/wap/mobile/2019activity/520day/src/img/baby.jpg'
+                },
+                // processData: false,
+                // contentType : false,
+                dataType : "json",
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function () {
+                    console.log('Upload error');
+                }
+            })
+        }
+
+
+    });
+
+    $('.face').click(function () {
+        var token = "24.d06ac87a6e15ff3724e212ea3d3b665a.2592000.1570349719.282335-17178623";
+
+
+        $.ajax({
+            url:'https://aip.baidubce.com/rest/2.0/face/v3/detect?access_token='+token,
+            type:'POST',
+            data:{
+                // access_token:token,
+                "image":'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3570798179,2355932790&fm=26&gp=0.jpg',
+                "face_field":'expression,age,beauty,gender,glasses,emotion',
+                "image_type":'URL'
+            },
+            dataType:'json',
+            success:function (res) {
+                console.log(res);
+                // var result  = JSON.parse(res)
+            },
+            error:function (err) {
+                console.log(err)
+            }
+        })
+    })
+</script>
+</body>
+</html>

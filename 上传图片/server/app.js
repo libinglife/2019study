@@ -17,7 +17,7 @@ let storage = multer.diskStorage({
         cb (null , `${Date.now()}-${file.originalname}`);
           // console.log("------------");
     }
-})
+});
 
 //添加配置文件到multer
 let upload = multer ({
