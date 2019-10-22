@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>双向数据绑定</title>
+</head>
+<body>
+	<input type="text" id="userName">
+    <br>
+    <span id="uName"></span>
+
+    <script>
+
+    	var obj = {
+    		pwd :"123"
+    	}
+    	var uName = document.getElementById('uName');
+    	var userName =document.getElementById('userName');
+
+    	Object.defineProperty(obj,"myname",{
+    		// value:"老铁",
+    		set:function(val){
+                console.log("set");
+                uName.innerHTML = val; 
+                userName.value = val; 
+    		},
+    		get:function(){
+                console.log("get");      
+    		}
+    	});
+
+    	userName.addEventListener('keyup',function (event) {
+    		console.log(event.target.value);
+    		obj.myname = event.target.value; //obj进行赋值
+    	})
+
+
+       
+
+
+    </script>
+
+</body>
+</html>

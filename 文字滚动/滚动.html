@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #scrollobj{
+            min-width: 70px;
+            height: 200px;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="scrollobj">
+    <p>11111吧</p>
+    <p>22222吧</p>
+    <p>333333333</p>
+    <p>44444444</p>
+    <p>55555555</p>
+    <p>66666666</p>
+</div>
+
+<script>
+   sc()
+    function sc() {
+        var $scrollobj = document.getElementById('scrollobj');
+        function scroll(self) {
+            /*往左*/
+            var tmp = (self.scrollTop)++;
+            console.log(tmp);
+            //当滚动条到达右边顶端时
+            if (self.scrollTop == tmp) {
+                self.innerHTML += self.innerHTML;
+            }
+            console.log(self.scrollTop)
+            //当滚动条滚动了初始内容的宽度时滚动条回到最左端
+            if (self.scrollTop >= self.offsetHeight+21) {
+                self.scrollTop = 0;
+            }
+        }
+
+        if ($scrollobj.scrollHeight > $scrollobj.offsetHeight) {   // 判断是否需要滚动
+            var timer = setInterval(function () {
+                scroll($scrollobj);
+            }, 40);
+        }
+    }
+</script>
+</body>
+</html>

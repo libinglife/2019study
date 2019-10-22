@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // function sleep (time) {
+    //     return new Promise((resolve) => setTimeout(resolve, time));
+    // }
+    //
+    // (async function() {
+    //     console.log('Do some thing, ' + new Date());
+    //     await sleep(3000);
+    //     console.log('Do other things, ' + new Date());
+    // })();
+
+
+    // ------------------------------
+
+    function sleep1 (times){
+        return new Promise((resolve, reject) => {
+            console.log("Promise");
+            setTimeout(function () {
+                resolve('你好成功')
+            },times)
+        })
+    }
+
+    async function do1() {
+        console.log("start");
+        let res = await sleep1(2000);
+        console.log(res);
+        console.log("end")
+    }
+
+    console.log(do1())
+    // do1().then(()=>{
+    //     console.log("then")
+    // })
+
+</script>
+</body>
+</html>

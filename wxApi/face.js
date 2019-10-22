@@ -25,7 +25,9 @@ let storage = multer.diskStorage({
         // console.log("------------");
     }
 });
-
+/**
+ * 你好
+ */
 //添加配置文件到multer
 let upload = multer ({
     storage : storage
