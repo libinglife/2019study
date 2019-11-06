@@ -1,4 +1,4 @@
-# from-component 自定义 from组件 哈哈
+# from-component 自定义 from组件 嘿嘿
 
 ## Project setup
 ```
