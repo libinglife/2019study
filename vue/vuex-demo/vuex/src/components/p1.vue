@@ -135,7 +135,7 @@ export default {
 
     ...mapActions({
        actionAddPrice :'ADD_PRICE' ,
-      changeName :'CHANGE_NAME'
+       changeName :'CHANGE_NAME'
     }),
     // ...mapActions(["addPrice"]),
     // actionAddPrice(){  //action 增价

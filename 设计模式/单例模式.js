@@ -1,17 +1,17 @@
 /**
  * Created by Libing on 2019/8/30 16:48
  */
-/*var CreateDiv = function (html) {
+
+//单例模式
+var CreateDiv = function (html) {
     this.html  = html;
     this.init();
 };
-
 CreateDiv.prototype.init = function () {
     var div = document.createElement('div');
     div.innerHTML = this.html;
     document.body.appendChild(div);
 };
-
 var ProxySingletonCreateDiv = (function () {
    var instance = null ;
    return function (html) {
@@ -25,7 +25,7 @@ var ProxySingletonCreateDiv = (function () {
 var a = new ProxySingletonCreateDiv("seven1") ;
 console.log(a);
 var b = new ProxySingletonCreateDiv("seven2") ;
-console.log(b);*/
+console.log(b);
 
 
 
@@ -80,5 +80,5 @@ var ProxyDownTime = (function () {
 
 var a = new ProxyDownTime(40);
 var b = new ProxyDownTime(50);
-console.log(a);
-console.log(b);
+// console.log(a ==b);
+// console.log(b);
