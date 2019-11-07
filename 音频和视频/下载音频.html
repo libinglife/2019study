@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="btn">下载音频</button>
+<script>
+    let btn  = document.querySelector('#btn');
+    let url = 'http://mobvoi-backend-public.ufile.ucloud.cn/yuyiguo/app-yingyong_y/reg-test/n7fml0qav5-1573107372594.wav';
+
+    //需要进行跨域处理
+    btn.onclick= function () {
+        fetch(url).then(res => {
+            return res.blob()
+        }).then(blob => {
+            console.log(blob)
+            const a = document.createElement('a');
+            document.body.appendChild(a)
+            a.style.display = 'none'
+            // 使用获取到的blob对象创建的url
+            const url = window.URL.createObjectURL(blob);
+            a.href = url;
+            // 指定下载的文件名
+            // a.download = '语音音频.mp3';
+            a.download = '语音音频.wav';
+            a.click();
+            document.body.removeChild(a)
+            // 移除blob对象的url
+            window.URL.revokeObjectURL(url);
+        });
+    }
+</script>
+</body>
+</html>
