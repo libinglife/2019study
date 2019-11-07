@@ -6,13 +6,16 @@
 
 <script>
 export default {
-  components: {},
+  provide() {
+    return {
+      kForm: this
+    };
+  },
   props: ["model", "rules"],
   data() {
     return {};
   },
-  watch: {},
-  computed: {},
+
   methods: {},
   created() {},
   mounted() {}

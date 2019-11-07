@@ -7,7 +7,9 @@
 </template>
 
 <script>
+import Schem from "async-validator";
 export default {
+  inject: ["kForm"],
   components: {},
   props: ["label", "prop"],
   data() {
@@ -18,9 +20,32 @@ export default {
   },
   watch: {},
   computed: {},
-  methods: {},
+  methods: {
+    myValidate() {
+      console.log(this.kForm);
+      console.log("过滤发发你发");
+      const rules = this.kForm.rules[this.prop];
+      const value = this.kForm.model[this.prop];
+
+      const descriptor = { [this.prop]: rules };
+
+      let schem = new Schem(descriptor);
+      schem.validate({ [this.prop]: value }, errors => {
+        console.log(errors);
+        if (errors) {
+          this.errMessage = errors[0].message;
+          this.errStatus = true;
+        } else {
+          this.errMessage = "";
+          this.errStatus = false;
+        }
+      });
+    }
+  },
   created() {},
-  mounted() {}
+  mounted() {
+    this.$on("validate", this.myValidate);
+  }
 };
 </script>
 <style  scoped>

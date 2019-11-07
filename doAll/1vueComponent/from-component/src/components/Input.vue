@@ -24,6 +24,7 @@ export default {
     onInput(e) {
       let value = e.target.value;
       this.$emit("input", value);
+      this.$parent.$emit("validate");
     }
   }
 };

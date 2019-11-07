@@ -51,7 +51,7 @@ export default {
       model: { username: "tom", password: "" },
       rules: {
         username: [
-          { required: true, message: "请输入用户名" },
+          { required: true, message: "请输入用户名字" },
           { min: 6, max: 10, message: "请输入6~10的用户名" }
         ],
         password: [{ required: true, message: "请输入密码" }]
