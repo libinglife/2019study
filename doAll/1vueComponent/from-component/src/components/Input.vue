@@ -1,31 +1,35 @@
 <template>
-  <div>
-    <input :type="type" :value="value" @input="onInput">
-  </div>
+    <div class="wrapper">
+        <input :type="type" :value="value" @input="onInput">
+    </div>
 </template>
 
 <script>
 export default {
-  name: "defineInput",
+  components: {},
   props: {
-    value: {
-      type: String,
-      default: ""
-    },
     type: {
       type: String,
       default: "text"
+    },
+    value: {
+      type: String,
+      default: ""
     }
+  },
+  data() {
+    return {};
   },
   methods: {
     onInput(e) {
-      console.log("输入事件");
       let value = e.target.value;
       this.$emit("input", value);
+      this.$parent.$emit("validate");
     }
   }
 };
 </script>
-
-<style>
+<style scoped>
+.wrapper {
+}
 </style>

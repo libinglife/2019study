@@ -1,19 +1,27 @@
 <template>
-  <div></div>
+  <form>
+    <slot></slot>
+  </form>
 </template>
 
 <script>
 export default {
-  name: "",
+  provide() {
+    return {
+      kForm: this
+    };
+  },
+  props: ["model", "rules"],
   data() {
     return {};
   },
-  components: {},
-  data() {
-    return {};
-  }
+
+  methods: {},
+  created() {},
+  mounted() {}
 };
 </script>
-
-<style>
+<style scoped>
+.wrapper {
+}
 </style>
