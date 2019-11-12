@@ -10,7 +10,10 @@ class KVue {
 
         //模拟watcher 创建
         new Watcher();
-        this.$data.name
+        this.$data.name;
+        // 模拟watcher 创建
+        new Watcher();
+        this.$data.foo.test;
     }
 
     // 观察者
@@ -27,6 +30,8 @@ class KVue {
         // 数据响应化
     defineReactive(obj, key, val) {
             // 递归解决数据嵌套
+            console.log(val);
+
             this.observer(val);
 
             let that = this;
