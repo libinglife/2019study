@@ -14,6 +14,7 @@
         <p>{{name}}</p>
         <!-- 指令解析 -->
         <p k-text="name"></p>
+        <p k-text="age"></p>
         <p>{{age}}</p>
         <!-- 双向绑定 -->
         <input type="text" k-model="name" />
@@ -22,21 +23,38 @@
         <!-- html内容解析 -->
         <div k-html="html"></div>
     </div>
+    
     <script src="./compile.js"></script>
     <script src="./kvue.js"></script>
     <script>
         let app = new KVue({
-            data: {
-                name: "李兵",
-                age: "20",
-                foo: {
-                    test: '测试'
-                }
-
-            }
-        })
-        app.$data.name = "hello,kaikeba";
-        app.$data.foo.test = "hello,世界";
+                el: "#app",
+                created() {
+                    console.log("开始啦");
+                    setTimeout(() => {
+                        this.name = "测试的老铁"
+                    }, 1500);
+                },
+                data: {
+                    html: "<button @click='addAge' >这是一个按钮</button>",
+                    name: "李兵",
+                    age: "20",
+                    foo: {
+                        test: '测试'
+                    }
+                },
+                methods: {
+                    changeName() {
+                        this.name = "最新的name"
+                    },
+                    // 
+                    addAge() {
+                        this.age++;
+                    }
+                },
+            })
+            // app.$data.name = "hello,kaikeba";
+            // app.$data.foo.test = "hello,世界";
     </script>
 </body>
 

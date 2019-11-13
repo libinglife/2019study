@@ -8,12 +8,19 @@ class KVue {
         this.$data = option.data;
         this.observer(this.$data);
 
-        //模拟watcher 创建
-        new Watcher();
-        this.$data.name;
-        // 模拟watcher 创建
-        new Watcher();
-        this.$data.foo.test;
+        // //模拟watcher 创建
+        // new Watcher();
+        // this.$data.name;
+        // // 模拟watcher 创建
+        // new Watcher();
+        // this.$data.foo.test;
+        new Compile(option.el, this);
+
+        // created执行
+        if (option.created) {
+            option.created.call(this)
+        }
+
     }
 
     // 观察者
@@ -31,7 +38,6 @@ class KVue {
     defineReactive(obj, key, val) {
             // 递归解决数据嵌套
             console.log(val);
-
             this.observer(val);
 
             let that = this;
@@ -93,18 +99,18 @@ class Dep {
 
 class Watcher {
     constructor(vm, key, cb) {
-
-        // this.vm = vm;
-        // this.key = key;
-        // this.cb = cb;
+        this.vm = vm;
+        this.key = key;
+        this.cb = cb;
         //将当前watcher 实例指定到Dep静态属性target
         Dep.target = this;
-        // this.vm[this.key]; //触发getter 添加依赖
-        // Dep.target = null;
+        this.vm[this.key]; //触发getter 添加依赖
+        Dep.target = null;
     }
 
     update() {
-        console.log("属性更新了");
+        // console.log("属性更新了");
+        this.cb.call(this.vm, this.vm[this.key])
 
     }
 }
