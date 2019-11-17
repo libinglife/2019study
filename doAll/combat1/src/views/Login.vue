@@ -6,13 +6,7 @@
 
     <!-- <cube-button>登录</cube-button> -->
 
-    <cube-form
-      v-if="!isLogin"
-      :model="model"
-      :schema="schema"
-      @submit="handleLogin"
-      @validate="handleValidate"
-    ></cube-form>
+    <cube-form v-if="!isLogin" :model="model" :schema="schema" @submit="handleLogin" @validate="handleValidate"></cube-form>
 
     <cube-button v-else @click="logOut">退出</cube-button>
   </div>
@@ -80,8 +74,13 @@ export default {
       //   阻止表单默认提交行为;
       e.preventDefault();
       //   登录请求;
-      this.$store
-        .dispatch("login", this.model)
+
+      // 第一种提交
+      // this.$store
+      //   .dispatch("login", this.model)
+
+      // 第二种方式
+      this.login(this.model)
         .then(code => {
           console.log(code);
           if (code == 0) {
@@ -103,6 +102,9 @@ export default {
           console.log(err);
         });
     },
+    ...mapActions({
+      login: "login"
+    }),
 
     // 退出登录
     // logOut() {
