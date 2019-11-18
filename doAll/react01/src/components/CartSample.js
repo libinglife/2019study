@@ -25,18 +25,18 @@ export default class CartSample extends Component {
         })
     }
     // 添加商品列表
-    addGood(){
-        if(this.state.text==""){
+    addGood() {
+        if (this.state.text === "") {
             alert("请填写内容");
             return;
         }
-        this.setState(prevState=>{
+        this.setState(prevState => {
             return {
-                goods:[
+                goods: [
                     ...prevState.goods,
                     {
-                        id:prevState.goods.length+1,
-                        text:prevState.text,
+                        id: prevState.goods.length + 1,
+                        text: prevState.text,
                     }
                 ]
             }
