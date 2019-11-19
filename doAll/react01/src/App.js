@@ -7,6 +7,8 @@ import { Clock } from './components/Clock';
 import StateTest from './components/StateTest';
 import CartSample from './components/CartSample';
 
+import LifeCycle from "./components/LifeCycle";
+
 
 // 格式名
 function formatName (user){
@@ -15,6 +17,17 @@ function formatName (user){
 
 class App extends Component {
 
+    state ={
+        name:'生命周期1'
+    }
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                name:"生命周期2"
+            })
+        }, 2000);
+    }
+    
     render() {
         const name = "jerry";
         const jsx = <p>李兵</p>;
@@ -43,6 +56,9 @@ class App extends Component {
 
                 {/* 条件循环 */}
                 <CartSample title="购物车"></CartSample>
+
+                {/*生命周期渲染*/}
+                <LifeCycle name={this.state.name}></LifeCycle>
 
             </div>
         );
