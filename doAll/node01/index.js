@@ -3,10 +3,10 @@
  const app = kExpress();
 
  app.get('/', (req, res) => {
-     res.end("hello world");
+     res.end("hello worlds");
  })
 
- app.get("./users", (req, res) => {
+ app.get("/users", (req, res) => {
      res.end(JSON.stringify({ name: 'liBing' }))
  })
  app.listen(3000, () => {
