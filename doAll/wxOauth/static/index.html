@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/cube-ui/lib/cube.min.js"></script>
+    <script src="https://cdn.bootcss.com/qs/6.6.0/qs.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/cube-ui/lib/cube.min.css">
+    <style>
+        .cube-btn {
+            margin: 10px 0;
+        }
+        
+        body {
+            text-align: center;
+        }
+    </style>
+    <title>微信公众号授权</title>
+</head>
+
+<body>
+    <h2>微信公众号授权</h2>
+    <div id="app">
+        <cube-button @click="auth">微信授权</cube-button>
+        <cube-button @click="getUserInfo">获取用户信息</cube-button>
+
+    </div>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            methods: {
+                async auth() { //授权
+                    window.location.href = "/wxAuthorize"
+                },
+                async getUserInfo() {
+                    const qs = Qs.parse(location.search.substr(1));
+                    const res = await axios.get('/getUser', {
+                        params: {
+                            openid: qs.openid
+                        }
+                    });
+
+                    console.log('userInfo:', res)
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

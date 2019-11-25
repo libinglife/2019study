@@ -1,0 +1,21 @@
+{
+  "name": "wxoauth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "libing",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "co-wechat": "^2.4.0",
+    "co-wechat-api": "^3.10.0",
+    "co-wechat-oauth": "^2.0.1",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  }
+}
