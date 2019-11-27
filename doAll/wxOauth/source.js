@@ -13,7 +13,7 @@ const config = require('./config');
 const app = new Koa();
 const router = new Router();
 
-app.use(bodyParser());
+// app.use(bodyParser());
 app.use(static(__dirname + "/static/"));
 app.use(xmlParser())
 
@@ -62,13 +62,15 @@ router.post('/wechat', cxt => {
     const builder = new xml2js.Builder();
     const result = builder.buildObject({
         xml: {
-            ToUserName: msg.ToUserName,
-            FromUserName: msg.FromUserName,
+            ToUserName: msg.FromUserName,
+            FromUserName: msg.ToUserName,
             CreateTime: Date.now(),
             MsgType: msg.MsgType,
             Content: "消息：hello " + msg.Content
         }
     })
+    console.log('xml result:', result);
+
     cxt.body = result;
 
 })
