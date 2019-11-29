@@ -75,7 +75,12 @@ router.post('/wechat', cxt => {
 
 })
 
+router.get("/test", async(cxt) => {
+    console.log("进入测试");
 
+    let url = "http://huodong.renren.com/common/happyrecallscratch/recharge?rechargeStatus=success&selectTab=2&selectNum=2&userId=967966122";
+    cxt.redirect(url)
+})
 
 
 
