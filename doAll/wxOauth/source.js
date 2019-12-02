@@ -13,7 +13,7 @@ const config = require('./config');
 const app = new Koa();
 const router = new Router();
 
-app.use(bodyParser());
+// app.use(bodyParser());
 app.use(static(__dirname + "/static/"));
 app.use(xmlParser())
 
@@ -23,7 +23,9 @@ router.get('/wechat', cxt => {
 
     console.log(url.parse(cxt.url, true));
 
-    const { query } = url.parse(cxt.url, true);
+    const {
+        query
+    } = url.parse(cxt.url, true);
 
     const {
         signature, //微信加密签名，signature 结合开发者填写的token 和请求中的timestamp参数 ,nonce参数
@@ -42,9 +44,9 @@ router.get('/wechat', cxt => {
 
     //签名对比 相同则按微信要求返回 echostr 参数
     if (signature === strSha1) {
-        cxt.body = echostr
+        cxt.body = echostr;
     } else {
-        cxt.body = "你不是微信"
+        cxt.body = "你不是微信";
     }
 })
 
@@ -62,13 +64,15 @@ router.post('/wechat', cxt => {
     const builder = new xml2js.Builder();
     const result = builder.buildObject({
         xml: {
-            ToUserName: msg.ToUserName,
-            FromUserName: msg.FromUserName,
+            ToUserName: msg.FromUserName,
+            FromUserName: msg.ToUserName,
             CreateTime: Date.now(),
             MsgType: msg.MsgType,
             Content: "消息：hello " + msg.Content
         }
     })
+    console.log('xml:', result);
+
     cxt.body = result;
 
 })
