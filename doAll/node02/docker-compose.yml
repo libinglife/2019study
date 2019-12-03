@@ -1,26 +1,54 @@
-version: '3.1'
+version: "3.1"
 services:
+  # mysql:
+  #   image: mysql
+  #   container_name: dahenhen-mysql
+  #   restart: always
+  #   volumes:
+  #   #有用mysqld/mysqld.sock 软链到 /tmp/mysql.sock 用以命令行访问，但我在mac上没成功，用的是带ip的方法
+  #     - "./mysqldata:/var/lib/mysql"
+  #     - "./mysqld:/var/run/mysqld"
+  #   ports:
+  #   #映射端口到宿主机，提供访问，宿主机访问mysql指令：mysql -h127.0.0.1 -uroot -p 必须带主机ip，否则会报错：“/tmp/mysql.sock 找不到”
+  #     - "3306:3306"
+  #   networks:
+  #   #提供一个新的network供外部访问容器
+  #     - backend
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 654321
+  #   command: --default-authentication-plugin=mysql_native_password
+
   mongo:
     image: mongo
+    container_name: libing-mongo
     restart: always
     ports:
-        - 27017:27017
+      - "27018:27017"
+    networks:
+      - frontend
+    volumes:
+      - "./mongo/data/db:/mongo/data/db"
+      - "./mongo/log:/mongo/log"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    command: --dbpath /mongo/data/db --logpath /mongo/log/dblog.log --auth
+
   mongo-express:
     image: mongo-express
+    container_name: libing-mongo-express
     restart: always
-    ports:
-      - 8085:8085
-  mysql:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    depends_on: #设置依赖，这里用来代替links字段
+      - mongo
+    networks: #express必须和mongo同在一个network下才能访问到
+      - frontend
+    ports: #对外的映射端口，这里使用了27016，容器宿主机本机访问的地址：http://localhost:27016，外网的话改为ip:port.
+      - "27016:8081"
     environment:
-      MYSQL_ROOT_PASSWORD: example
-    ports:
-      - 3306:3306
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8082:8082
- 
+      ME_CONFIG_MONGODB_SERVER: libing-mongo #服务名是mongo容器的名字
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root #mongo验证的用户名
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 123456 #mongo验证的用户密码
+
+# networks:
+#   frontend:
+#   backend:

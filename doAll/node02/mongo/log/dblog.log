@@ -1,0 +1,30 @@
+2019-12-03T05:45:24.512+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/mongo/data/db 64-bit host=6e49cbf3d596
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten] db version v4.2.1
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten] git version: edf6d45851c0b9ee15548f0f847df141764a317e
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten] modules: none
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten] build environment:
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten]     distmod: ubuntu1804
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2019-12-03T05:45:24.515+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, security: { authorization: "enabled" }, storage: { dbPath: "/mongo/data/db" }, systemLog: { destination: "file", path: "/mongo/log/dblog.log" } }
+2019-12-03T05:45:24.521+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=478M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2019-12-03T05:45:25.180+0000 E  STORAGE  [initandlisten] WiredTiger error (17) [1575351925:180498][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: File exists Raw: [1575351925:180498][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: File exists
+2019-12-03T05:45:25.358+0000 I  STORAGE  [initandlisten] WiredTiger message unexpected file WiredTiger.wt found, renamed to WiredTiger.wt.183
+2019-12-03T05:45:25.360+0000 E  STORAGE  [initandlisten] WiredTiger error (1) [1575351925:360122][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: Operation not permitted Raw: [1575351925:360122][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: Operation not permitted
+2019-12-03T05:45:25.399+0000 E  STORAGE  [initandlisten] WiredTiger error (17) [1575351925:398985][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: File exists Raw: [1575351925:398985][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: File exists
+2019-12-03T05:45:25.402+0000 I  STORAGE  [initandlisten] WiredTiger message unexpected file WiredTiger.wt found, renamed to WiredTiger.wt.184
+2019-12-03T05:45:25.403+0000 E  STORAGE  [initandlisten] WiredTiger error (1) [1575351925:403506][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: Operation not permitted Raw: [1575351925:403506][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: Operation not permitted
+2019-12-03T05:45:25.439+0000 E  STORAGE  [initandlisten] WiredTiger error (17) [1575351925:439427][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: File exists Raw: [1575351925:439427][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: File exists
+2019-12-03T05:45:25.443+0000 I  STORAGE  [initandlisten] WiredTiger message unexpected file WiredTiger.wt found, renamed to WiredTiger.wt.185
+2019-12-03T05:45:25.445+0000 E  STORAGE  [initandlisten] WiredTiger error (1) [1575351925:445620][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: Operation not permitted Raw: [1575351925:445620][1:0x7f2aa9e73b00], connection: __posix_open_file, 669: /mongo/data/db/WiredTiger.wt: handle-open: open: Operation not permitted
+2019-12-03T05:45:25.447+0000 W  STORAGE  [initandlisten] Failed to start up WiredTiger under any compatibility version.
+2019-12-03T05:45:25.447+0000 F  STORAGE  [initandlisten] Reason: 1: Operation not permitted
+2019-12-03T05:45:25.447+0000 F  -        [initandlisten] Fatal Assertion 28595 at src/mongo/db/storage/wiredtiger/wiredtiger_kv_engine.cpp 786
+2019-12-03T05:45:25.447+0000 F  -        [initandlisten] 
+
+***aborting after fassert() failure
+
+
