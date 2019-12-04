@@ -18,37 +18,47 @@ services:
   #     MYSQL_ROOT_PASSWORD: 654321
   #   command: --default-authentication-plugin=mysql_native_password
 
-  mongo:
-    image: mongo
-    container_name: libing-mongo
+  # mongo:
+  #   image: mongo
+  #   container_name: libing-mongo
+  #   restart: always
+  #   ports:
+  #     - "27018:27017"
+  #   networks:
+  #     - frontend
+  #   volumes:
+  #     - "./mongo/data/db:/mongo/data/db"
+  #     - "./mongo/log:/mongo/log"
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: 123456
+  #   command: --dbpath /mongo/data/db --logpath /mongo/log/dblog.log --auth
+
+  # mongo-express:
+  #   image: mongo-express
+  #   container_name: libing-mongo-express
+  #   restart: always
+  #   depends_on: #设置依赖，这里用来代替links字段
+  #     - mongo
+  #   networks: #express必须和mongo同在一个network下才能访问到
+  #     - frontend
+  #   ports: #对外的映射端口，这里使用了27016，容器宿主机本机访问的地址：http://localhost:27016，外网的话改为ip:port.
+  #     - "27016:8081"
+  #   environment:
+  #     ME_CONFIG_MONGODB_SERVER: libing-mongo #服务名是mongo容器的名字
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root #mongo验证的用户名
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: 123456 #mongo验证的用户密码
+
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - 3307:3306
+  adminer:
+    image: adminer
     restart: always
     ports:
-      - "27018:27017"
-    networks:
-      - frontend
-    volumes:
-      - "./mongo/data/db:/mongo/data/db"
-      - "./mongo/log:/mongo/log"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: 123456
-    command: --dbpath /mongo/data/db --logpath /mongo/log/dblog.log --auth
-
-  mongo-express:
-    image: mongo-express
-    container_name: libing-mongo-express
-    restart: always
-    depends_on: #设置依赖，这里用来代替links字段
-      - mongo
-    networks: #express必须和mongo同在一个network下才能访问到
-      - frontend
-    ports: #对外的映射端口，这里使用了27016，容器宿主机本机访问的地址：http://localhost:27016，外网的话改为ip:port.
-      - "27016:8081"
-    environment:
-      ME_CONFIG_MONGODB_SERVER: libing-mongo #服务名是mongo容器的名字
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root #mongo验证的用户名
-      ME_CONFIG_MONGODB_ADMINPASSWORD: 123456 #mongo验证的用户密码
-
-# networks:
-#   frontend:
-#   backend:
+      - 8080:8080
