@@ -21,11 +21,18 @@
 
     console.log("create", ret)
 
+    // 插入数据
     ret = await connection.execute(`
         INSERT INTO   test (message)   VALUES(?)
-    `, ['mysql连接测试'])
+    `, ['12.10 mysql连接测试'])
 
     console.log('insert', ret)
 
+    ret = await connection.execute(`
+        SELECT * FROM  test
+    `);
+
+    console.log(JSON.stringify(ret[0]));
+    connection.end();
 
 })()
