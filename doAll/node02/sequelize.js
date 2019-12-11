@@ -88,14 +88,32 @@
         console.log(item.get())
     });
 
+    // 属性查询
+    // Fruit.findOne({ attributes: ['name'] }).then(fruit => {
+    //     // fruit是首个匹配项，若没有则为null
+    //     console.log(fruit.get());
+    // });
+
+    // 修改库存
+    Fruit.findAll().then(fruits => {
+        console.log(JSON.stringify(fruits));
+        // 修改amount 触发setterMethods;
+        fruits[0].amount = "155kg";
+        fruits[0].save();
+        console.log("保存成功");
+    })
+
+
+
+
+
     // 查询第十个以后， 这是分页查询的基本操作
     Fruit.findAll({ offset: 10, limit: 2 }).then(fruits => {
         console.log('fruits:', fruits)
     })
 
     const Op = Sequelize.Op;
-    console.log('Op:', Op);
-
+    // console.log('Op:', Op);
 
     //条件查询
     Fruit.findAll({
@@ -116,15 +134,13 @@
     })
 
     //数据库删除
-    Fruit.destroy({
-        where: {
-            // id: 4
-            name: '椰子'
-        }
-    }).then(res => {
-        console.log("删除成功 res:", res)
-    })
-
-
+    // Fruit.destroy({
+    //     where: {
+    //         // id: 4
+    //         name: '椰子'
+    //     }
+    // }).then(res => {
+    //     console.log("删除成功 res:", res)
+    // })
 
 })()
