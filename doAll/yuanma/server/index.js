@@ -1,16 +1,9 @@
 const Koa = require('koa')
 const Router = require('koa-router');
 const static = require('koa-static')
-const bodyParser = require('koa-bodyparser');
-
-
 const fs = require('fs');
-
-// const axios = require('axios');
-
 const app = new Koa();
 const router = new Router();
-
 
 let str;
 fs.readFile('../dist/index.html', "utf-8", (err, data) => {
@@ -19,7 +12,6 @@ fs.readFile('../dist/index.html', "utf-8", (err, data) => {
     }
     str = data.toString();
 })
-
 
 // 解决vue 路由在 history刷新 404情况
 router.get('*', async(ctx, next) => {
