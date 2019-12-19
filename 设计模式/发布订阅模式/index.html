@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>发布订阅</h2>
+
+    <div id="publish">
+        <button>QQ订阅1</button>
+        <button>微信订阅2</button>
+        <button>支付宝订阅3</button>
+    </div>
+
+
+    <ul id="subscibe">
+        <li>QQ订阅1</li>
+        <li>微信订阅2</li>
+        <li>支付宝订阅3</li>
+    </ul>
+
+    <script src="http://s.xnimg.cn/a94371/wap/mobile/2017activity/listingPage/wap-page/js/jquery-3.2.1.min.js"></script>
+    <script src="./index1.js"></script>
+    <script>
+        //  订阅
+
+        let pubFn = function(data) {
+            console.log("这是订阅回调函数" + data)
+        }
+        $('#subscibe')[0].addEventListener("click", function(event) {
+            // console.log(event);
+            let ehtml = event.target.innerHTML;
+            Event.listen(ehtml, pubFn)
+
+        });
+
+        $('#publish')[0].addEventListener("click", function(event) {
+            // console.log(event);
+            let ehtml = event.target.innerHTML;
+            Event.trigger(ehtml, ehtml)
+
+        });
+    </script>
+</body>
+
+</html>

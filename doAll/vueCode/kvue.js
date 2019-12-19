@@ -46,6 +46,7 @@ class KVue {
                 enumerable: true, //是否可以枚举
                 configurable: true, //属性可被修改或被删除
                 get() {
+                    console.log("key", key, Dep.target);
                     Dep.target && dep.addDep(Dep.target)
                     return val
                 },
@@ -86,6 +87,7 @@ class Dep {
         }
         // 添加依赖
     addDep(dep) {
+        console.log(this.deps);
         this.deps.push(dep)
     }
     notify() {
