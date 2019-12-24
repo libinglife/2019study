@@ -30,3 +30,9 @@ console.log("生成秘钥：", token);
 const resToken = jsonwebtoken.verify(token, secret);
 
 console.log("解码：", resToken);
+
+// 解码： {
+//     data: { name: '李兵', password: '111111' },
+//     exp: 1577102612,
+//         iat: 1577099012
+// }
