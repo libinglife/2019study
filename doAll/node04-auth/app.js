@@ -4,7 +4,6 @@ const session = require('koa-session');
 const redis = require('redis');
 const koaRedis = require('koa-redis')
 const warper = require('co-redis');
-const cookParse = require('koa')
 const bodyParser = require('koa-bodyparser')
 
 const redisClient = redis.createClient(6379, 'localhost');
