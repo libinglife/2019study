@@ -5,7 +5,6 @@ const bodyParser = require('koa-bodyparser')
 const jwt = require('jsonwebtoken')
     // const jwtAuth = require('koa-jwt')
 
-console.log("哈哈哈")
 const jwtAuth = require('koa-jwt/lib/index')
 
 const secret = "it is secret";
@@ -17,8 +16,10 @@ app.use(static(__dirname + '/'));
 app.use(bodyParser());
 
 // app.use((ctx, next) => {
-//     ctx.state.mane = "libing";
-//     next()
+//     // ctx.state.mane = "libing";
+//     console.log("前面第一次")
+//     next();
+//     console.log("后面最后一次")
 // })
 
 router.post('/login', (ctx) => {
@@ -41,7 +42,7 @@ router.post('/login', (ctx) => {
 router.get('/getUser', jwtAuth({ secret }), (ctx) => {
     // 验证通过 数据存储在ctx.state 
     console.log("state:", ctx.state)
-
+    console.log("getUser")
     ctx.body = {
         code: 1,
         message: 'get info success',

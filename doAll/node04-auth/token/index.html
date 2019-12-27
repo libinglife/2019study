@@ -92,6 +92,22 @@
                 }
             }
         });
+
+
+        let cxt = {
+            state: {
+                secret: '哈哈哈哈'
+            }
+        }
+
+        let bbb = "测试秘钥"
+        let {
+            state: {
+                secret = "哈哈哈"
+            }
+        } = cxt;
+
+        console.log(secret)
     </script>
 </body>
 
