@@ -22,25 +22,30 @@ app.use(static(__dirname + '/'));
 app.keys = ["this is keys"];
 
 app.use(bodyParse());
-app.use(session({ key: 'gitHubKey', signed: true }, app));
+app.use(session({
+    key: 'gitHubKey',
+    signed: true,
+    httpOnly: false
+}, app));
 
 
 
 
-app.use((ctx, next) => {
+app.use(async(ctx, next) => {
+    console.log("url:", ctx.url)
     if (ctx.url.indexOf('/github') > -1) {
-        console.log("first")
-        next();
-        console.log("进入这里")
+
+        await next(); //await 很重要一定要加上  
+
     } else {
-        console.log("session:--->", ctx.session);
+        console.log("session:--->", ctx.session.userInfo);
 
         if (!ctx.session.userInfo) {
             ctx.body = {
                 message: 'fail login'
             }
         } else {
-            next();
+            await next();
             console.log("会走这里吗");
 
         }
@@ -49,7 +54,7 @@ app.use((ctx, next) => {
 
 
 router.get('/github/login', (ctx) => {
-    console.log("进入")
+    console.log("login 授权")
         // 重定向认证接口，
     let path = "https://github.com/login/oauth/authorize";
     path += "?client_id=" + config.client_id;
@@ -67,27 +72,25 @@ router.get('/github/callback', async(ctx) => {
         'client_secret': config.client_secret,
         'code': code
     }
+
     let res = await axios.post('https://github.com/login/oauth/access_token', params);
 
     console.log("返回token信息：", res.data);
-    const { access_token } = querystring.parse(res.data);
+    const {
+        access_token
+    } = querystring.parse(res.data);
     res = await axios.get('https://api.github.com/user?access_token=' + access_token);
 
     console.log("userinfo:", res.data.name);
-    ctx.session.userInfo = res.data.name;
+    ctx.session.userInfo = res.data;
 
-    ctx.body = {
-        code: '1',
-        message: '成功',
-        userName: res.data.name,
-        avatar: res.data.avatar_url
-    }
-
-
-    // ctx.body = `
-    //     <h1>Hello ${res.data.login}</h1>
-    //     <img src="${res.data.avatar_url}" alt=""/>
-    // `
+    ctx.redirect('/index1.html?login=true');
+    // ctx.body = {
+    //     code: '1',
+    //     message: '成功',
+    //     userName: res.data.name,
+    //     avatar: res.data.avatar_url
+    // }
 })
 
 // 获取用户信息
@@ -96,7 +99,7 @@ router.get('/getUser', (ctx) => {
     console.log("state:", ctx.state)
     ctx.body = {
         code: 1,
-        message: ctx.session.userInfo
+        message: ctx.session
     }
 })
 
