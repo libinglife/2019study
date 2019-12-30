@@ -19,6 +19,19 @@
         <div>
             <button onclick="document.getElementById('log').innerHTML = ''">Clear Log</button>
         </div>
+
+        <img :src="heardSrc" alt="">
+        <div>{{name}}</div>
+
+        <!-- 测试arr 深层数据改变不生效 -->
+        <div>
+            <p v-for="item in testArr">
+                <span>{{item}}</span>
+                <!-- <span>{{item.age}}</span> -->
+            </p>
+        </div>
+
+        <button @click="changeData">改变</button>
     </div>
     <h6 id="log"></h6>
     </div>
@@ -35,9 +48,34 @@
             el: '#app',
             data: {
                 username: 'test',
-                password: 'test'
+                password: 'test',
+                heardSrc: '',
+                name: '',
+                testArr: [1, 2, 3, 4]
+            },
+            watch: {
+
+            },
+            mounted() {
+                let flag = window.location.href.indexOf('login') > -1;
+
+                if (flag) {
+                    // window.location.replace("http://localhost:3001/index1.html")
+                    this.getUser();
+                }
             },
             methods: {
+
+                changeData() {
+                    // this.testArr[1] = "铁兵";
+
+                    // 解决办法 第一种
+                    this.testArr.splice(0, 1, "老铁");
+
+                    // 第二种
+                    Vue.set(this.testArr, 1, "雷达兵")
+                    console.log("执行改变")
+                },
                 async login() {
                     // await axios.post('/login', {
                     //     username: this.username,
@@ -50,6 +88,8 @@
                 },
                 async getUser() {
                     let res = await axios.get('/getUser');
+                    this.name = res.data.message.userInfo.name
+                    this.heardSrc = res.data.message.userInfo.avatar_url
 
                     console.log(res);
 
