@@ -29,22 +29,21 @@ app.use(session({ key: 'gitHubKey', signed: true }, app));
 
 app.use((ctx, next) => {
     if (ctx.url.indexOf('/github') > -1) {
-        console.log("first")
+        debugger
         next();
-        console.log("进入这里")
-    } else {
-        console.log("session:--->", ctx.session);
-
-        if (!ctx.session.userInfo) {
-            ctx.body = {
-                message: 'fail login'
-            }
-        } else {
-            next();
-            console.log("会走这里吗");
-
-        }
     }
+
+    // } else {
+    //     console.log("session:--->", ctx.session);
+
+    //     if (!ctx.session.userInfo) {
+    //         ctx.body = {
+    //             message: 'fail login'
+    //         }
+    //     } else {
+    //         next();
+    //     }
+    // }
 })
 
 
@@ -58,7 +57,8 @@ router.get('/github/login', (ctx) => {
     ctx.redirect(path);
 });
 
-router.get('/github/callback', async(ctx) => {
+router.get('/github/callback', async(ctx, next) => {
+    debugger
     console.log("回调");
     console.log("code:", ctx.query.code);
     let code = ctx.query.code;
@@ -77,11 +77,12 @@ router.get('/github/callback', async(ctx) => {
     ctx.session.userInfo = res.data.name;
 
     ctx.body = {
-        code: '1',
-        message: '成功',
-        userName: res.data.name,
-        avatar: res.data.avatar_url
-    }
+            code: '1',
+            message: '成功',
+            userName: res.data.name,
+            avatar: res.data.avatar_url
+        }
+        // await next();
 
 
     // ctx.body = `
@@ -112,7 +113,7 @@ router.post('/logout', (ctx) => {
 })
 
 app.use(router.routes());
-app.use(router.allowedMethods())
+// app.use(router.allowedMethods())
 
 app.listen(3001, () => {
     console.log("监听-->localhost:3001");
