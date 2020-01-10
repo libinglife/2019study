@@ -7,4 +7,5 @@ module.exports = {
         username: 'root',
         password: 'example'
     },
+    middleware: ['logger']
 }

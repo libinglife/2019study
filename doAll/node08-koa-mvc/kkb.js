@@ -1,5 +1,5 @@
 const Koa = require('koa');
-const { initRouter, initController, initServer, initConfig, initModel } = require('./kkb-loader.js');
+const { initRouter, initController, initServer, initConfig, initModel, initSchedule } = require('./kkb-loader.js');
 class KKB {
     constructor(config) {
         this.$app = new Koa();
@@ -12,7 +12,10 @@ class KKB {
         this.$router = initRouter(this);
         this.$service = initServer(this);
 
-        this.$app.use(this.$router.routes())
+        this.$app.use(this.$router.routes());
+
+        // 初始化定时任务
+        // initSchedule();
     }
     use(...args) {
         this.$app.use(...args)

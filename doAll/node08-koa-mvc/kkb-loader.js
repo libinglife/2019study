@@ -66,7 +66,18 @@ const Sequelize = require('sequelize')
 
 function initConfig(app) {
     load('config', (filename, config) => {
-        app.$db = new Sequelize(config.db);
+
+        if (config.db) {
+            app.$db = new Sequelize(config.db);
+        }
+
+        if (config.middleware) {
+            config.middleware.forEach(mid => {
+                const tempPath = path.resolve(__dirname, 'middleware', mid);
+                console.log("路径:", tempPath);
+                app.$app.use(require(tempPath))
+            })
+        }
     })
 }
 
@@ -80,11 +91,23 @@ function initModel(app) {
     app.$db.sync()
 }
 
+// 初始化 定时任务
+const schedule = require('node-schedule');
+// console.log(schedule);
+
+function initSchedule() {
+    load('schedule', (filename, { interval, handler }) => {
+        // console.log(scheduleConfig.interval);
+        schedule.scheduleJob(interval, handler)
+    })
+}
+
 
 module.exports = {
     initRouter,
     initController,
     initServer,
     initConfig,
-    initModel
+    initModel,
+    initSchedule
 }
