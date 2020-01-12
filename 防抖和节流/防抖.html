@@ -27,6 +27,7 @@
                 var _this = this;
                 var args = arguments
                 timeout = setTimeout(function() {
+                	console.log(args);
                     // fn.apply(_this, args)
                     fn.call(_this, ...args, "其他参数")
                         // fn(...args, "别别别")
