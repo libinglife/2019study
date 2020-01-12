@@ -50,6 +50,18 @@ app.use(async(ctx, next) => {
 
         }
     }
+
+    // } else {
+    //     console.log("session:--->", ctx.session);
+
+    //     if (!ctx.session.userInfo) {
+    //         ctx.body = {
+    //             message: 'fail login'
+    //         }
+    //     } else {
+    //         next();
+    //     }
+    // }
 })
 
 
@@ -63,7 +75,8 @@ router.get('/github/login', (ctx) => {
     ctx.redirect(path);
 });
 
-router.get('/github/callback', async(ctx) => {
+router.get('/github/callback', async(ctx, next) => {
+    debugger
     console.log("回调");
     console.log("code:", ctx.query.code);
     let code = ctx.query.code;
@@ -115,7 +128,7 @@ router.post('/logout', (ctx) => {
 })
 
 app.use(router.routes());
-app.use(router.allowedMethods())
+// app.use(router.allowedMethods())
 
 app.listen(3001, () => {
     console.log("监听-->localhost:3001");

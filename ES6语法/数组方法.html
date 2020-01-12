@@ -1,81 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
-<script>
+    <script>
+        let arr = [1, 2, 3, 4];
+        let res = arr.reduce((acc, cur) => {
+            console.log(acc);
+            console.log(cur);
+            return cur + acc
+        });
+        console.log(res);
 
-    let arr = [1,2,3,4];
-    let res = arr.reduce((acc,cur)=>{
-        console.log(acc);
-        console.log(cur);
-        return cur+acc
-    });
-    console.log(res);
+        let arr1 = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4, "哈哈", '嘿嘿', "黑黑", "哈哈", "黑黑", ];
 
-    let arr1 = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4 ,"哈哈",'嘿嘿',"黑黑","哈哈","黑黑",];
+        let p = arr1.sort().reduce((init, current) => {
+            if (init.length === 0 || init[init.length - 1] !== current) {
+                init.push(current)
+            }
+            return init
+        }, []);
 
-    let p = arr1.sort().reduce((init,current)=>{
-        if(init.length === 0 ||init[init.length-1] !==current){
-            init.push(current)
+        console.log(p)
+
+        // console.log(new Set(arr1));
+
+        var obj = {};
+
+        console.log("-----------------------------------")
+
+        // let p2 = arr1.filter((item,index)=>{
+        //     console.log(item);
+        //     if(obj[item]){
+        //         return false
+        //     }else {
+        //         obj[item] = item;
+        //         return true
+        //     }
+        //
+        // });
+        // console.log(p2)
+
+        let p3 = arr1.filter((item, index, currentArr) => {
+            return currentArr.indexOf(item) === index
+        });
+
+        console.log(p3)
+        let p4 = [];
+        p4 = arr1.filter((item, index, currentArr) => {
+            console.log(p4.includes(item))
+            return p4.includes(item) ? '' : p4.push(item);
+        });
+
+        console.log(p4)
+
+        console.log("-----------------------------")
+        let testArrFind = [{
+            id: 1,
+            name: 'libing'
+        }, {
+            id: 2,
+            name: '老铁'
+        }, {
+            id: 3,
+            name: '小兵'
+        }];
+        let resXX = testArrFind.find((item, index, arr) => {
+            return item.id = 3
+        });
+        console.log(resXX)
+
+
+
+        // --------------Array.prototype.slice.call(arguments)的理解---------------------
+
+
+
+        function foo(a, b, c) {
+            console.log(arguments);
+            let res = Array.prototype.slice.call(arguments, 1);
+            console.log(res);
+            // console.log(arguments);
+
+            let res1 = Array.prototype.slice.call(arguments);
+            // let res1 = Array.prototype.slice.apply(arguments);
+            console.log(res1)
         }
-        return init
-    },[]);
 
-    console.log(p)
+        foo("你好", "老铁", "牛逼");
 
-    // console.log(new Set(arr1));
+        let dsf = ["世界", "和平", "美好"];
 
-    var obj = {};
-
-    console.log("-----------------------------------")
-
-    // let p2 = arr1.filter((item,index)=>{
-    //     console.log(item);
-    //     if(obj[item]){
-    //         return false
-    //     }else {
-    //         obj[item] = item;
-    //         return true
-    //     }
-    //
-    // });
-    // console.log(p2)
-
-    let p3 = arr1.filter((item,index,currentArr)=>{
-        return currentArr.indexOf(item) === index
-    });
-
-    console.log(p3)
-    let p4 =[];
-     p4  =  arr1.filter((item,index,currentArr)=>{
-         console.log(p4.includes(item))
-        return p4.includes(item) ? '': p4.push(item);
-    });
-
-    console.log(p4)
-
-    console.log("-----------------------------")
-    let testArrFind = [
-        {
-            id:1,
-            name:'libing'
-        },{
-            id:2,
-            name:'老铁'
-        },
-        {
-            id:3,
-            name:'小兵'
-        }
-    ];
-    let resXX = testArrFind.find((item,index,arr)=>{
-        return item.id = 3
-    });
-    console.log(resXX)
-
-</script>
+        console.log(dsf.slice()); //不传默认为0
+    </script>
 </body>
+
 </html>
