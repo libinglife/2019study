@@ -5,20 +5,21 @@ const response = require('./response');
 
 class kkb {
     constructor() {
-        this.test = "test"
+        this.middleware = [] // 中间件
     }
     use(callBack) {
-        this.callBack = callBack;
+        this.middleware.push(callBack);
     }
     listen(...args) {
         http.createServer((req, res) => {
             // res.writeHead("200", { 'Content-Type': "text/html;charset=utf8" })
-            res.setHeader('Content-type', 'text/plain;charset=utf-8')
+            res.setHeader('Content-type', 'text/html;charset=utf-8')
 
             let ctx = this.createContent(req, res);
 
+            // this.callBack(ctx);
 
-            this.callBack(ctx);
+            this.compose(ctx, this.middleware);
             res.end(ctx.body)
 
         }).listen(...args);
@@ -61,8 +62,22 @@ class kkb {
 
         ctx.req = ctx.request.req = req;
         ctx.res = ctx.response.res = res;
-
         return ctx
+    }
+    compose(ctx, middleware) {
+
+        return dispatch(0)
+
+        function dispatch(index) {
+            const fn = middleware[index]
+            if (!fn) {
+                return Promise.resolve("结束了");
+            }
+            return Promise.resolve(fn(ctx, function next() {
+                return dispatch(index + 1)
+            }))
+        }
+
     }
 }
 
