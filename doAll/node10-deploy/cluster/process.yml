@@ -1,0 +1,7 @@
+# 使用pm2 start process.yml
+apps:
+  - script: app.js
+    instances: 2
+    watch: true
+    env:
+      NODE_ENV: production
