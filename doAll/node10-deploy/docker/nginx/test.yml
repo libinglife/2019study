@@ -1,0 +1,12 @@
+version: "3.1"
+
+services:
+  # docker-compose -f test.yml up 启动命令
+  # docker stop 运行id 关闭命令
+  # docker rm 运行id   删除容器
+  nginx:
+    image: nginx
+    volumes:
+      - "./www/:/usr/share/nginx/html"
+    ports:
+      - 8087:80
