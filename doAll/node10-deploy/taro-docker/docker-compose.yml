@@ -1,0 +1,38 @@
+version: "3.1"
+services:
+  app-pm2:
+    container_name: app-pm2
+    #构建容器
+    build: ./backend
+    # 需要链接本地代码时
+    # volumes:
+    #   - ./backend:/usr/src/app
+    ports:
+      - "3001:3001"
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27018:27017
+  mongo-express:
+    links:
+      - mongo
+    image: mongo-express
+    restart: always
+    ports:
+      - 8097:8081
+    environment:
+      ME_CONFIG_OPTIONS_EDITORTHEME: 3024-night
+      ME_CONFIG_BASICAUTH_USERNAME: mongoexpress
+      ME_CONFIG_BASICAUTH_PASSWORD: mongoexpress
+      # ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      # ME_CONFIG_MONGODB_ADMINPASSWORD: 123
+  nginx:
+    restart: always
+    image: nginx
+    ports:
+      - 8092:80
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+      - ./frontend/dist/:/var/www/html/
+      - ./static/:/static/
