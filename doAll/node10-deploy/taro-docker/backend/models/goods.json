@@ -1,12 +1,11 @@
 {
     "data": {
-        "Javascript": [
-            {
+        "Javascript": [{
                 "id": 1,
                 "name": "ES6语法实战",
                 "img": "LearnES6_Final.png",
                 "price": "200",
-                "solded": "777",
+                "solded": "888",
                 "tag": "Javascript"
             },
             {
@@ -26,8 +25,7 @@
                 "tag": "Javascript"
             }
         ],
-        "React": [
-            {
+        "React": [{
                 "id": 4,
                 "name": "React入门",
                 "img": "ReactBeginners.png",
@@ -84,8 +82,7 @@
                 "tag": "React"
             }
         ],
-        "Vuejs": [
-            {
+        "Vuejs": [{
                 "id": 11,
                 "name": "Vue进阶实战",
                 "img": "VueJS_Final.png",
@@ -110,8 +107,7 @@
                 "tag": "Vuejs"
             }
         ],
-        "Git": [
-            {
+        "Git": [{
                 "id": 14,
                 "name": "Github从入门到精通",
                 "img": "github.png",
@@ -128,8 +124,7 @@
                 "tag": "Git"
             }
         ],
-        "Test": [
-            {
+        "Test": [{
                 "id": 16,
                 "name": "Puppetee测试入门",
                 "img": "TestGooglePuppeteer_Final.png",
@@ -146,18 +141,15 @@
                 "tag": "Test"
             }
         ],
-        "Python": [
-            {
-                "id": 18,
-                "name": "Python从入门到精通",
-                "img": "IntroPython.png",
-                "price": "100",
-                "solded": "56",
-                "tag": "Python"
-            }
-        ],
-        "Node.js": [
-            {
+        "Python": [{
+            "id": 18,
+            "name": "Python从入门到精通",
+            "img": "IntroPython.png",
+            "price": "100",
+            "solded": "56",
+            "tag": "Python"
+        }],
+        "Node.js": [{
                 "id": 19,
                 "name": "使用Docker部署你的nodejs",
                 "img": "NodeDocker_1000.png",
@@ -174,16 +166,14 @@
                 "tag": "Node.js"
             }
         ],
-        "GraphQL": [
-            {
-                "id": 21,
-                "name": "GraphQL从入门到精通",
-                "img": "GraphQL_Final.png",
-                "price": "100",
-                "solded": "56",
-                "tag": "GraphQL"
-            }
-        ]
+        "GraphQL": [{
+            "id": 21,
+            "name": "GraphQL从入门到精通",
+            "img": "GraphQL_Final.png",
+            "price": "100",
+            "solded": "56",
+            "tag": "GraphQL"
+        }]
     },
     "tags": [
         "Javascript",
