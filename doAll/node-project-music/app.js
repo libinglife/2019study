@@ -1,0 +1,43 @@
+const Koa = require('koa');
+const static = require('koa-static');
+const path = require('path');
+const render = require('koa-art-template');
+const bodyParse = require("koa-bodyparser");
+
+
+const app = new Koa();
+// 监听
+app.listen(3001, () => {
+    console.log("服务启动:localhost:3001")
+})
+
+// 引入路由
+const userRouter = require('./routers/user')
+const musicRouter = require('./routers/music')
+
+//模板渲染
+render(app, {
+    root: path.join(__dirname, 'views'),
+    extname: '.html',
+    debug: process.env.NODE_ENV !== 'production'
+})
+
+// 重写URL,改掉/public
+app.use(async(ctx, next) => {
+    if (ctx.request.url.startsWith("/public")) {
+        ctx.url = ctx.url.replace('/public', '')
+    }
+    await next()
+})
+
+// 使用中间件开始
+app.use(static(path.resolve('./public')));
+app.use(bodyParse())
+    // 使用中间件结束
+
+
+// 路由开始
+app.use(userRouter.routes());
+app.use(musicRouter.routes());
+app.use(userRouter.allowedMethods());
+// 路由结束
