@@ -2,7 +2,8 @@ const Koa = require('koa');
 const static = require('koa-static');
 const path = require('path');
 const render = require('koa-art-template');
-const bodyParse = require("koa-bodyparser");
+const bodyParse = require('koa-bodyparser');
+const errors = require('./middlewares/error');
 
 
 const app = new Koa();
@@ -20,7 +21,11 @@ render(app, {
     root: path.join(__dirname, 'views'),
     extname: '.html',
     debug: process.env.NODE_ENV !== 'production'
-})
+});
+
+//捕捉错误
+
+app.use(errors());
 
 // 重写URL,改掉/public
 app.use(async(ctx, next) => {
