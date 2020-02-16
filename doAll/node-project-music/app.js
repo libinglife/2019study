@@ -25,7 +25,7 @@ render(app, {
 
 //捕捉错误
 
-app.use(errors());
+app.use(errors);
 
 // 重写URL,改掉/public
 app.use(async(ctx, next) => {
