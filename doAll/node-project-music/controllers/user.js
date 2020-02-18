@@ -64,5 +64,40 @@ module.exports = {
             ctx.throw('002')
         }
 
+    },
+
+    // 登录
+    async doLogin(ctx, next) {
+        let {
+            username,
+            password
+        } = ctx.request.body;
+        let users = await findUsername(username);
+
+        // 1. 如果查询不到 提示用户或密码错误
+
+        if (users.length == 0) {
+            ctx.body = {
+                code: '002',
+                message: '用户名或密码错误'
+            }
+            return
+        }
+
+        // 2.如果查到 比对密码是否相同
+        // 2.1 然后加入session 
+
+        if (users[0].password == password) {
+            ctx.body = {
+                code: '001',
+                message: '登录成功'
+            }
+            return
+        }
+
+        ctx.body = {
+            code: '003',
+            message: '用户名或密码错误'
+        }
     }
 }

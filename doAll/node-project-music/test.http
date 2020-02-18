@@ -1,0 +1,20 @@
+
+# POST http://localhost:3001/user/register  HTTP/1.1
+# content-type: application/json
+
+# {
+#    "username":"laotie",
+#    "password":"12345",
+#    "email":"163.com"
+# }
+
+
+
+POST http://localhost:3001/user/login  HTTP/1.1
+content-type: application/json
+
+{
+   "username":"laotie2",
+   "password":"12345"
+}
+

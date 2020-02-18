@@ -2,7 +2,8 @@ const Router = require('koa-router');
 const router = new Router();
 const {
     checkUsername,
-    register
+    register,
+    doLogin
 } = require('../controllers/user')
     // const db = require('../models/db');
 
@@ -15,6 +16,7 @@ router.get('/register', async ctx => {
     })
     .post('/check-username', checkUsername)
     .post('/register', register)
+    .post('/login', doLogin)
     .get('/login', async ctx => {
         await ctx.render('login')
     });
