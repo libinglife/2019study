@@ -4,13 +4,21 @@ const path = require('path');
 const render = require('koa-art-template');
 const bodyParse = require('koa-bodyparser');
 const errors = require('./middlewares/error');
-
+const session = require('koa-session');
+const formidable = require('koa-formidable');
 
 const app = new Koa();
 // 监听
 app.listen(3001, () => {
     console.log("服务启动:localhost:3001")
-})
+});
+
+app.keys = ["test"];
+app.use(session({
+    key: 'defineKey',
+    sign: true
+}, app))
+
 
 // 引入路由
 const userRouter = require('./routers/user')
@@ -38,7 +46,14 @@ app.use(async(ctx, next) => {
 // 使用中间件开始
 app.use(static(path.resolve('./public')));
 app.use(bodyParse())
-    // 使用中间件结束
+
+// 上传文件
+app.use(formidable({
+    uploadDir: path.resolve('./public/files'),
+    keepExtensions: true,
+}))
+
+// 使用中间件结束
 
 
 // 路由开始

@@ -91,7 +91,9 @@ module.exports = {
             ctx.body = {
                 code: '001',
                 message: '登录成功'
-            }
+            };
+            // 存入session
+            ctx.session.userInfo = username;
             return
         }
 
