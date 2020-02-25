@@ -3,7 +3,8 @@ const router = new Router();
 const {
     checkUsername,
     register,
-    doLogin
+    doLogin,
+    getPic
 } = require('../controllers/user')
     // const db = require('../models/db');
 
@@ -17,8 +18,9 @@ router.get('/register', async ctx => {
     .post('/check-username', checkUsername)
     .post('/register', register)
     .post('/login', doLogin)
+    .get('/get-pic', getPic)
     .get('/login', async ctx => {
         await ctx.render('login')
-    });
+    })
 
 module.exports = router
