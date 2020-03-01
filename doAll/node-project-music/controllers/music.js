@@ -15,6 +15,11 @@ function optUpLoad(ctx) {
         filelrc
     } = ctx.request.files;
 
+    console.log('file:', file)
+    console.log("--------------");
+
+    console.log('filelrc:', filelrc)
+
 
     // 整合文件
     let tempObj = {
@@ -34,11 +39,22 @@ function optUpLoad(ctx) {
     const fileBase = path.parse(file.path).base;
     tempObj.file = path.resolve('/public/files', fileBase);
     // 标识用户
-    tempObj.uid = 1;
+    console.log("uid:", ctx.session.uid)
+    tempObj.uid = ctx.session.uid;
 
     return tempObj;
 }
 module.exports = {
+    // 渲染音乐首页
+    async showIndex(ctx, next) {
+        let id = ctx.session.uid;
+
+        let musics = await musicModels.findMusicById(id);
+        console.log(musics)
+        await ctx.render('index', {
+            musics
+        })
+    },
     /**
      *添加音乐
      *
@@ -48,8 +64,6 @@ module.exports = {
     async addMusic(ctx, next) {
 
         let tempObj = optUpLoad(ctx);
-
-
 
         try {
             let res = await musicModels.addMusic(tempObj);

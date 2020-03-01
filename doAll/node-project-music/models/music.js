@@ -12,9 +12,13 @@ module.exports = {
     async delMusic(id) {
         return await db.q('delete from musics where id = ?', [id]);
     },
-    //upDateMusic
+    //更新编辑音乐
     async upDateMusic(musicData) {
         let val = Object.values(musicData);
         return await db.q('update  musics set title=?,singer=?,time=?,filelrc=?,file=?,uid=? where id=?', val);
+    },
+    //根据用户Id 查询音乐
+    async findMusicById(uid) {
+        return await db.q('select * from musics where uid = ?', [uid]);
     }
 }

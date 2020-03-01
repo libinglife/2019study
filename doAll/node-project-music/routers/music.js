@@ -3,14 +3,13 @@ const router = new Router();
 const {
     addMusic,
     delMusic,
-    updateMusic
+    updateMusic,
+    showIndex
 } = require('../controllers/music')
 
 router.prefix('/music');
 
-router.get('/index', async ctx => {
-        await ctx.render('index')
-    })
+router.get('/index', showIndex)
     .get('/add', async ctx => {
         await ctx.render('add')
     })

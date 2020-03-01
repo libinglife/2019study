@@ -34,7 +34,11 @@ module.exports = {
             email,
             v_code
         } = ctx.request.body;
+        // console.log("session:", ctx.session.v_code);
 
+
+
+        // console.log("38", username)
         if (!username || !password || !email) {
             ctx.body = {
                 code: '003',
@@ -42,6 +46,15 @@ module.exports = {
             };
             return;
         }
+
+        if (ctx.session.v_code != v_code) {
+            ctx.body = {
+                code: '004',
+                message: '验证码不对'
+            };
+            return;
+        }
+
         // 先判断名字是否可用
         let res1 = await findUsername(username);
         console.log("res1", res1);
@@ -83,8 +96,8 @@ module.exports = {
         } = ctx.request.body;
         let users = await findUsername(username);
 
+        // console.log("users:===>", users)
         // 1. 如果查询不到 提示用户或密码错误
-
         if (users.length == 0) {
             ctx.body = {
                 code: '002',
@@ -95,7 +108,6 @@ module.exports = {
 
         // 2.如果查到 比对密码是否相同
         // 2.1 然后加入session 
-
         if (users[0].password == password) {
             ctx.body = {
                 code: '001',
@@ -103,6 +115,7 @@ module.exports = {
             };
             // 存入session
             ctx.session.userInfo = username;
+            ctx.session.uid = users[0].id;
             return
         }
 
@@ -114,12 +127,12 @@ module.exports = {
     // 获取验证码
     async getPic(ctx) {
         const rand = parseInt(Math.random() * 9000 + 1000);
-        console.log("rand", rand);
+        // console.log("rand", rand);
 
         ctx.session.v_code = rand + '';
 
         const png = new captchapng(80, 30, rand);
-        console.log(png)
+        // console.log(png)
 
         ctx.body = png.getBuffer();
     }
