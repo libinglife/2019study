@@ -45,7 +45,32 @@ app.use(async(ctx, next) => {
 
 // 使用中间件开始
 app.use(static(path.resolve('./public')));
-app.use(bodyParse())
+// app.use(bodyParse())
+
+// 权限控制
+app.use(async(ctx, next) => {
+    // console.log(ctx.url);
+    // console.log("userInfo", ctx.session.userInfo)
+    if (ctx.url.startsWith("/music")) {
+
+        if (ctx.session.userInfo) {
+            await next();
+            return;
+        } else {
+            ctx.body = `
+                <div>
+                   暂未登录，<a href="/user/login">请去登录</a>
+                </div>
+            `
+            return
+        }
+    }
+    await next()
+})
+
+
+
+
 
 // 上传文件
 app.use(formidable({

@@ -11,6 +11,7 @@
     <link href="../public/css/style.css" rel="stylesheet" type="text/css" />
     <script src="../public/vender/jquery/dist/jquery.js" type="text/javascript"></script>
     <script src="../public/vender/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -27,9 +28,9 @@
                 </div>
                 <!-- 登陆&注册栏 -->
                 <span>
-        <a class="register btn btn-normal btn-success" href="">注册</a>
-        <a class="login btn btn-normal btn-primary" href="">登录</a>
-      </span>
+                    <a class="register btn btn-normal btn-success" href="">注册</a>
+                    <a class="login btn btn-normal btn-primary" href="">登录</a>
+                </span>
                 <!-- end 登陆&注册栏 -->
             </div>
             <!-- end 用户栏 -->
@@ -37,10 +38,10 @@
     </div>
     <div class="container">
         <form id="form" method="post" action="/">
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="">歌曲编号</label>
                 <input type="text" name="id" class="form-control" placeholder="请输入歌曲编号">
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="">歌曲标题</label>
                 <input type="text" name="title" class="form-control" placeholder="请输入歌曲标题">
@@ -58,15 +59,66 @@
                 <input type="file" name="file">
                 <p class="help-block">请上传歌曲文件.</p>
             </div>
+            <div class="form-group">
+                <label for="">歌词文件</label>
+                <input type="file" name="filelrc">
+                <p class="help-block">请上传歌词文件.</p>
+            </div>
             <button type="submit" class="btn btn-success">点击添加</button>
         </form>
     </div>
     <div class="aw-footer-wrap">
         <div class="aw-footer">
             Copyright © 2016, All Rights Reserved
-            
+
         </div>
     </div>
+
+    <script>
+        // 添加歌曲
+        $('#form').on('submit', function(e) {
+            e.preventDefault();
+
+
+            // 第一种方式
+            var inputs = document.querySelectorAll('input');
+
+            var fd = new FormData();
+            // 装载数据
+            fd.append('title', inputs[0].value);
+            fd.append('singer', inputs[1].value);
+            fd.append('time', inputs[2].value);
+
+            // 传文件对象的方式
+            //(files这个属性是原声DOM的属性，jq获取的没有改属性)
+            fd.append('file', inputs[3].files[0]);
+            // 是一个文件对象
+            fd.append('filelrc', inputs[4].files[0]);
+
+
+
+            // 第二种方式
+            // let formData = $(this).serialize();
+            // console.log(formData);
+            // let form = document.getElementById('form');
+            // let formData = new FormData(form);
+
+            axios.post('/music/add-music', fd)
+                .then(res => {
+                    console.log(res);
+                    if (res.data.code === '001') {
+                        if (confirm('添加成功,去听歌？')) {
+                            window.location = '/music/index'
+                        }
+                    } else {
+                        alert(res.data.msg);
+                    }
+                }).catch(err => {
+                    console.log(err)
+                })
+
+        })
+    </script>
 </body>
 
 </html>
