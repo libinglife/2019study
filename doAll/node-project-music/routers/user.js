@@ -18,8 +18,7 @@ router.use('*', async function(ctx, next) {
 router.prefix('/user');
 
 router.get('/register', async ctx => {
-        // let res = await db.q('insert into music (username, password ,email) values (?,?,?)', ['libing', '123', '163.com']);
-        // console.log('res', res)
+
         await ctx.render('register')
     })
     .post('/check-username', checkUsername)
@@ -28,6 +27,10 @@ router.get('/register', async ctx => {
     .get('/get-pic', getPic)
     .get('/login', async ctx => {
         await ctx.render('login')
+    }).get('/logout', async ctx => {
+        delete ctx.session.userInfo;
+        // ctx.session.userInfo = null;
+        ctx.redirect('/user/login');
     })
 
 module.exports = router

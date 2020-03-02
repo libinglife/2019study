@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的音乐</title>
+
+    <!--引包-->
+    {{include '../particals/linker.html'}}
+</head>
+
+<body>
+    <!--include 子模板载入函数-->
+    <!--头部-->
+    {{include '../particals/header.html'}}
+
+    <!--中部变化(留坑)-->
+    {{block 'context'}} 加载失败！！！ {{/block}}
+
+    <!--底部-->
+    {{include '../particals/footer.html'}}
+
+</body>
+
+</html>

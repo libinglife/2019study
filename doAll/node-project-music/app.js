@@ -68,8 +68,13 @@ app.use(async(ctx, next) => {
     await next()
 })
 
-
-
+// 必须在每次请求挂载新的数据与视图的桥梁(在session之后)
+app.use(async(ctx, next) => {
+    // express app.locals 视图与数据的桥梁
+    ctx.state.user = ctx.session.userInfo;
+    console.log("session:====>", ctx.session)
+    await next()
+})
 
 
 // 上传文件
