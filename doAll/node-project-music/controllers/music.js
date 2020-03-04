@@ -32,12 +32,14 @@ function optUpLoad(ctx) {
     tempObj.filelrc = "no upload filelrc";
     if (filelrc) {
         const filelrcBase = path.parse(filelrc.path).base;
-        tempObj.filelrc = path.resolve('/public/files', filelrcBase);
+        // tempObj.filelrc = path.resolve('public/files', filelrcBase);
+        tempObj.filelrc = '/public/files/' + filelrcBase;
     }
 
     // 歌曲文件
     const fileBase = path.parse(file.path).base;
-    tempObj.file = path.resolve('/public/files', fileBase);
+    // tempObj.file = path.resolve('public/files', fileBase);
+    tempObj.file = '/public/files/' + fileBase;
     // 标识用户
     console.log("uid:", ctx.session.uid)
     tempObj.uid = ctx.session.uid;

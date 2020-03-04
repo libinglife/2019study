@@ -1,7 +1,7 @@
 ﻿{{extend './layout/main.html'}} {{block 'context'}}
 <style type="text/css">
     #box {
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(234, 84, 84, 0.2);
         width: 300px;
         height: 360px;
         margin-top: 10px;
@@ -14,15 +14,17 @@
     }
     
     #lrc {
-        margin-top: 130px;
+        margin-top: 30px;
         position: absolute;
         text-align: center;
-        padding-top: 60px;
+        width: 100%;
+        /* padding-top: 60px; */
+        /* border: 1px solid red; */
     }
     
     .gl {
-        color: hotpink;
-        background-color: red;
+        color: white;
+        background-color: pink;
     }
 </style>
 
@@ -52,7 +54,7 @@
                         <td>{{$value.title}}</td>
                         <td>{{$value.singer}}</td>
                         <td>{{$value.time}}</td>
-                        <td><a href="">编辑</a></td>
+                        <td><a href="/music/edit?id={{$value.id}}">编辑</a></td>
                         <td><a class="del" href="">删除</a></td>
                         <td><span style="cursor:pointer" file="{{$value.file}}" filelrc="{{$value.filelrc}}" class="glyphicon glyphicon-play-circle ply"></span></td>
                     </tr>
@@ -72,5 +74,100 @@
         </div>
     </div>
 </div>
+
+<script>
+    // 解析歌词文件
+    function parseFilelrc(filelrc) {
+        let tempObj = {};
+
+        let lines = filelrc.split('\n');
+        console.log(lines);
+        // [00:00.98]告白气球"
+        let regex = /\[(\d{2})\:(\d{2})\.(\d{2})\](.*)/;
+
+        lines.forEach((item, index) => {
+            let result = regex.exec(item);
+
+            if (!result) return;
+            console.log(result);
+            let minutes = result[1];
+            let second = result[2];
+            let content = result[4];
+
+            let key = (minutes * 60) + (second - 0);
+            tempObj[key] = content;
+
+        });
+
+        return tempObj;
+
+    }
+
+
+    // 生成DOM
+    function createDom(object) {
+        console.log(object)
+        let html = "";
+        for (const key in object) {
+            // console.log(key);
+            if (object[key]) {
+                html += '<p time=' + key + '>' + object[key] + '</p>'
+            }
+        }
+        $('#lrc').html(html);
+    }
+
+    // 开始滚动
+    function startScroll(object) {
+        $('#audio').on('timeupdate', function(e) {
+            // console.log(e.target.currentTime);
+            let second = Math.round(e.target.currentTime);
+
+            // console.log(second);
+            if (!object[second]) return;
+
+            let p = $("#lrc").find('p[time=' + second + ']');
+
+            let top = $('#lrc').offset().top;
+            // console.log(top);
+            let currentP = $(p).offset().top;
+
+            let chaVal = parseInt(top - currentP);
+            // console.log("chaVal:", chaVal);
+
+
+            $('#lrc').animate({
+                top: chaVal
+            }, 'slow');
+
+            $(p).addClass('gl').siblings().removeClass('gl')
+                // console.log(currentP)
+        })
+    }
+    // 点击播放
+    $('.ply').on('click', function(e) {
+        var file = $(this).attr('file');
+        var filelrc = $(this).attr('filelrc');
+
+        //请求歌词文件
+        axios.get(filelrc)
+            .then(res => {
+                // 解析歌词
+                let FilelrcObj = parseFilelrc(res.data);
+                // 生成dom
+                createDom(FilelrcObj);
+
+                // 开始滚动
+                startScroll(FilelrcObj)
+
+
+                $("#audio").attr('src', file);
+            }).catch(err => {
+                console.log(err)
+            })
+
+
+    })
+</script>
 
 {{/block}}

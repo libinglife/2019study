@@ -6,11 +6,12 @@ const bodyParse = require('koa-bodyparser');
 const errors = require('./middlewares/error');
 const session = require('koa-session');
 const formidable = require('koa-formidable');
+const { appPort } = require('./config')
 
 const app = new Koa();
 // 监听
-app.listen(3001, () => {
-    console.log("服务启动:localhost:3001")
+app.listen(appPort, () => {
+    console.log(`服务启动:localhost:${appPort}`)
 });
 
 app.keys = ["test"];
@@ -40,6 +41,11 @@ app.use(async(ctx, next) => {
     if (ctx.request.url.startsWith("/public")) {
         ctx.url = ctx.url.replace('/public', '')
     }
+    // // 处理首页
+    if (ctx.url === '/') {
+        ctx.url = '/user/login';
+    }
+    // 放行
     await next()
 })
 

@@ -94,6 +94,7 @@ module.exports = {
             username,
             password
         } = ctx.request.body;
+
         let users = await findUsername(username);
 
         // console.log("users:===>", users)
