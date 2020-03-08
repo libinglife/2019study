@@ -1,0 +1,14 @@
+<swiper indicator-dots autoplay interval="2000" duration="1000">
+    <block wx:for="{{swiperListUrls}}" wx:key="{{index}}">
+        <swiper-item >
+            <image class="swiper-img" src="{{item.url}}" mode="widthFix"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<!-- 歌单列表 -->
+<view class="playlist-container">
+    <block wx:for="{{playlist}}" wx:key="{{_id}}">
+        <x-playlist playlist="{{item}}"></x-playlist>  
+    </block>
+</view>
