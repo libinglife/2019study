@@ -1,0 +1,124 @@
+.player-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    filter: blur(40rpx);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.player-mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+    background-color: #222;
+}
+
+.player-info {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.player-disc {
+    width: 592rpx;
+    height: 592rpx;
+    background: url(https://s3.music.126.net/mobile-new/img/disc.png?d3bdd1080a72129346aa0b4b4964b75f=) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 140rpx);
+}
+
+.player-point {
+    content: '';
+    position: absolute;
+    top: -150rpx;
+    left: 266rpx;
+    width: 192rpx;
+    height: 274rpx;
+    background: url('https://s3.music.126.net/m/s/img/needle.png?702cf6d95f29e2e594f53a3caab50e12') no-repeat center/contain;
+    transform: rotate(-15deg);
+    transform-origin: 24rpx 12rpx;
+    transition: transform 0.5s ease;
+}
+
+.play {
+    transform: rotate(0deg);
+}
+
+.player-img {
+    width: 368rpx;
+    height: 368rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -184rpx;
+    margin-left: -184rpx;
+}
+
+
+/* 旋转动画 */
+
+.rotation {
+    animation: dh 12s linear infinite;
+    -moz-animation: dh 12s linear infinite;
+    -o-animation: dh 12s linear infinite;
+    -webkit-animation: dh 12s linear infinite;
+}
+
+.rotation-pause {
+    animation-play-state: paused;
+}
+
+@keyframes dh {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.control {
+    position: absolute;
+    width: 90%;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control .iconfont {
+    color: #fefefe;
+}
+
+.icon-shangyishoushangyige,
+.icon-xiayigexiayishou {
+    font-size: 80rpx;
+}
+
+.icon-bofang1,
+.icon-zanting1 {
+    font-size: 120rpx;
+    margin: 0 50rpx;
+}
+
+.progress-bar {
+    position: absolute;
+    width: 90%;
+    bottom: 24%;
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -4,8 +4,10 @@
         "pages/blog/blog",
         "pages/profile/profile",
         "pages/demo/demo",
-        "pages/musiclist/muisclist"
+        "pages/musiclist/muisclist",
+        "pages/player/player"
     ],
+    "requiredBackgroundModes": ["audio"],
     "window": {
         "backgroundColor": "#f0f0f0",
         "backgroundTextStyle": "dark",
@@ -16,8 +18,7 @@
     "tabBar": {
         "color": "#000000",
         "selectedColor": "#d43c33",
-        "list": [
-            {
+        "list": [{
                 "pagePath": "pages/playlist/playlist",
                 "text": "音乐",
                 "iconPath": "images/music.png",

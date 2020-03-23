@@ -57,10 +57,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "音乐列表",
 					"pathName": "pages/musiclist/muisclist",
-					"query": "playlistId=649333707",
+					"query": "playlistId= 2153548870",
 					"scene": null
 				}
 			]

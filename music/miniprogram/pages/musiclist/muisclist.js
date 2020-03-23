@@ -32,12 +32,18 @@ Page({
                     coverImgUrl: pl.coverImgUrl
                 },
                 musiclist: pl.tracks
-            })
+            });
+
+            this._setMusicList(pl.tracks)
             wx.hideLoading();
         }).catch(err => {
             console.log(err);
         })
+    },
 
+    // 存储本地音乐
+    _setMusicList(val) {
+        wx.setStorageSync("musicList", val);
     },
 
     /**
