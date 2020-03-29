@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for in和for of的区别</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            a: 1,
+            b: 2,
+            c: 3,
+        }
+
+        let arr = ['test1', "test2", 'test3'];
+
+
+        // for of  obj  
+        // obj 是对象不可迭代 Uncaught TypeError: obj is not iterable
+        // for (const value of obj) {  
+        //     console.log(value)
+        // }
+
+
+        //for of 数组 返回的是数组的值
+        for (const iterator of arr) {
+            console.log(iterator)
+        }
+
+
+        // for in  数组 遍历出对应的下标 
+        arr.name = "李兵";
+        console.log(arr)
+        for (const key in arr) {
+            if (arr.hasOwnProperty(key)) {
+                console.log(key)
+            }
+        }
+
+
+        // 用for of 遍历对象
+        let objIndexArr = Object.keys(obj);
+        console.log(objIndexArr);
+        for (const iterator of objIndexArr) {
+            console.log(iterator)
+        }
+    </script>
+</body>
+
+</html>

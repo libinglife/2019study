@@ -1,2 +1,25 @@
-<!--pages/blog/blog.wxml-->
-<text>pages/blog/blog.wxml</text>
+<view class="container">
+	<!-- 头部 -->
+	<view class="header">
+		<view class="publish-container" bind:tap="publish">
+			<i class="iconfont icon-fabu" />
+		</view>
+		<view class="search-container">
+			<i class="iconfont icon-sousuo find" />
+			<input
+			 class="bar"
+			 placeholder-class="in-bar"
+			 placeholder="请输入内容"
+			 type="text"
+			/>
+			<button size="mini" class="search">搜索</button>
+		</view>
+	</view>
+	<!-- 底部弹层 -->
+	<x-login 
+		bind:loginSuccess="onSuccessLogin" 
+		bind:loginError="onErrorLogin" 
+		modelShow="{{modelShow}}"
+	/>
+</view>
+

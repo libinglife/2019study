@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -61,6 +61,20 @@
 					"name": "音乐列表",
 					"pathName": "pages/musiclist/muisclist",
 					"query": "playlistId= 2153548870",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发现",
+					"pathName": "pages/blog/blog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "博客编辑页",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "avatarUrl=https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJo7lVU3LibjTXWZt2kykBtAzh42bHfNUmQDJasnib5mrBCLy8Co0Cp5Ds7W3JgW3ibWD5c0SxsAsxgQ/132&nickName=清眸悦兮",
 					"scene": null
 				}
 			]

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两列布局。一侧固定，另一侧自适应。</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+        
+        .left {
+            width: 200px;
+            height: 100%;
+            background-color: pink;
+        }
+        
+        .right {
+            flex: 1;
+            background-color: fuchsia;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+<view class="modal" hidden="{{!modelShow}}">
+    <view class="panel">
+        <i bind:tap="closeModal" class="iconfont icon-shanchu1"></i>
+        <!-- slot具名插槽 -->
+        <slot name="modal-content"></slot>
+        <!-- <slot name="other"></slot> -->
+    </view>
+</view>
