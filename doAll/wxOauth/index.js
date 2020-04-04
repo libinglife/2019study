@@ -58,6 +58,6 @@ router.get('/getUser', async(cxt) => {
 
 app.use(router.routes()) //启动路由
 app.use(router.allowedMethods());
-app.listen(8989, () => {
-    console.log("监听服务器地址：127.0.0.1:8989");
+app.listen(4040, () => {
+    console.log("监听服务器地址：127.0.0.1:4040");
 })

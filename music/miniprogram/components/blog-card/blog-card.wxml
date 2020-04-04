@@ -1,0 +1,27 @@
+<view class="blog">
+	<!-- 博客标题等信息 -->
+	<view class="blog-title">
+		<image class="blog-portrait" src="{{blog.avatarUrl}}" />
+		<view class="blog-box" hover-class="none" hover-stop-propagation="false">
+			<view class="blog-nickName">
+				{{blog.nickName}}
+			</view>
+			<view class="blog-time">
+				{{blog.createTime}}
+			</view>
+		</view>
+
+	</view>
+	<view class="blog-content">
+		{{blog.content}}
+	</view>
+	<view class="blog-img">
+
+        <block wx:for="{{blog.img}}" wx:key="{{index}}">
+            <image class="img" src="{{item}}" mode="aspectFill" />
+        </block>
+          
+	</view>
+
+</view>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="text">
+    <p id="p"></p>
+
+    <script>
+        window.onload = function(param) {
+
+            let obj = {
+                text: ''
+            }
+            let value;
+            Object.defineProperty(obj, 'text', {
+                get() {
+                    // console.log("get")
+                    return value
+                },
+                set(newValue) {
+                    value = newValue
+                    document.getElementById('p').innerHTML = newValue
+                    document.getElementById("text").value = newValue
+                }
+            })
+
+            document.getElementById('text').addEventListener('input', function(event) {
+
+                obj.text = event.target.value
+                console.log(obj.text)
+
+                // console.log(obj)
+            })
+
+
+
+        }
+    </script>
+</body>
+
+</html>

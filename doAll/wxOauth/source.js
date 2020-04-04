@@ -71,11 +71,7 @@ router.post('/wechat', cxt => {
             Content: "消息：hello " + msg.Content
         }
     })
-<<<<<<< HEAD
-    console.log('xml:', result);
-=======
     console.log('xml result:', result);
->>>>>>> 08cc9d18b58a931d47626a823ba1c98603887a25
 
     cxt.body = result;
 

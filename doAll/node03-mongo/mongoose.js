@@ -57,11 +57,4 @@ connection.once('open', async() => {
     } catch (error) {
         console.log(error);
     }
-
-
-
-
-
-
-
 })

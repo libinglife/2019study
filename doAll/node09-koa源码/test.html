@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn(...arguments) {
+            // console.log(arguments)
+            // console.log(Array.isArray(arguments))
+            // console.log(typeof [1, 3])
+            const [path, ...fns] = [...arguments];
+
+            console.log(path, fns);
+
+        }
+
+        fn("user", 'fn1', 'fn2');
+    </script>
+</body>
+
+</html>

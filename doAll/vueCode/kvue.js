@@ -82,10 +82,11 @@ class KVue {
 //Dep用来管理watcher
 class Dep {
     constructor() {
-            // 这里存放若干依赖
-            this.deps = []
-        }
-        // 添加依赖
+        // 这里存放若干依赖
+        this.deps = []
+    }
+
+    // 添加依赖
     addDep(dep) {
         console.log(this.deps);
         this.deps.push(dep)

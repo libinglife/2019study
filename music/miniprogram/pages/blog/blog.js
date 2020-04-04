@@ -6,6 +6,7 @@ Page({
      */
     data: {
         modelShow: false, //显示授权框
+        blogList: [], //博客数据
     },
 
     // 发布按钮
@@ -71,6 +72,9 @@ Page({
             }
         }).then(res => {
             console.log(res);
+            this.setData({
+                blogList: res.result.data
+            })
 
         }).catch(err => {
             console.log(err);

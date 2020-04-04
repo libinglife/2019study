@@ -11,8 +11,6 @@ const static = (dirPath = './public') => async(ctx, next) => {
     // })
 
     // return
-
-
     const basename = '/' + path.basename(dirPath);
 
     if (ctx.url.indexOf(basename) === 0) {

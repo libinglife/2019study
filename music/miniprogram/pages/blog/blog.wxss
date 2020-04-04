@@ -63,3 +63,8 @@
     transform: translateY(-50%);
     color: #9f9f9f;
 }
+
+.blog-container {
+    /* border: 1px solid red; */
+    margin-top: 100rpx;
+}
