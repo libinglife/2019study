@@ -176,11 +176,16 @@ Page({
                 });
 
                 // 返回blog页面 ,并且刷新
-                wx.navigateBack({
-                    delta: 1
-                });
-                var curPages = getCurrentPages();
-                console.log(curPages)
+                wx.navigateBack();
+
+                // 取得历史记录栈
+                var pages = getCurrentPages();
+                console.log(pages)
+
+                // 取得上一个页面
+                const prePage = pages[pages.length - 2]
+                    // 下拉刷新获取新数据
+                prePage.onPullDownRefresh()
 
 
             })

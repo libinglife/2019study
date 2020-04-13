@@ -28,7 +28,7 @@ Component({
             if (userInfo) {
                 // 弹框关闭
                 this.setData({
-                    modalShow: false
+                    modelShow: false
                 })
                 this.triggerEvent('loginSuccess', userInfo)
             } else {

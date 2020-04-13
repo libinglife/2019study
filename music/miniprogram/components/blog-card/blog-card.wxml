@@ -17,10 +17,15 @@
 	</view>
 	<view class="blog-img">
 
-        <block wx:for="{{blog.img}}" wx:key="{{index}}">
-            <image class="img" src="{{item}}" mode="aspectFill" />
-        </block>
-          
+		<block wx:for="{{blog.img}}" wx:key="index">
+			<image
+			 catch:tap="previewImg"
+			 data-index="{{index}}"
+			 class="img"
+			 src="{{item}}"
+			 mode="aspectFill"
+			/>
+		</block>
 	</view>
 
 </view>

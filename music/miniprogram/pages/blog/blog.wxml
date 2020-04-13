@@ -6,12 +6,7 @@
 		</view>
 		<view class="search-container">
 			<i class="iconfont icon-sousuo find" />
-			<input
-			 class="bar"
-			 placeholder-class="in-bar"
-			 placeholder="请输入内容"
-			 type="text"
-			/>
+			<input class="bar" placeholder-class="in-bar" placeholder="请输入内容" type="text" />
 			<button size="mini" class="search">搜索</button>
 		</view>
 	</view>
@@ -20,18 +15,14 @@
 	<view class="blog-container">
 		<block wx:for="{{blogList}}" wx:key="index">
 			<view class="blog-panel">
-				<x-blog-card blog="{{item}}"/>
+				<!-- 卡片 -->
+				<x-blog-card data-blogId="{{item._id}}" bind:tap="goBlogComment" blog="{{item}}" />
+				<!-- 卡片分享和评论控制 -->
+				<x-blog-ctrl blog="{{item}}" blogId="{{item._id}}" iconfont="iconfont" icon-pinglun="icon-pinglun" icon-fenxiang="icon-fenxiang" />
 			</view>
 		</block>
 	</view>
-	
-
 
 	<!-- 底部弹层 -->
-	<x-login 
-		bind:loginSuccess="onSuccessLogin" 
-		bind:loginError="onErrorLogin" 
-		modelShow="{{modelShow}}"
-	/>
+	<x-login bind:loginSuccess="onSuccessLogin" bind:loginError="onErrorLogin" modelShow="{{modelShow}}" />
 </view>
-

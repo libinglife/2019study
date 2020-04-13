@@ -77,7 +77,7 @@ export default {
                 tab.show = tab.name === this.currentValue
             })
             //同时跟新内容显示
-            this.upDateStatus()
+            // this.upDateStatus()
             // console.log(this.navList)
         },
 

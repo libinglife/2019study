@@ -33,9 +33,7 @@ export default {
   computed: {},
   methods: {
     upDateNav() {
-      this.$parent.u
-      
-      pDateNav();
+      this.$parent.upDateNav();
     }
   },
 

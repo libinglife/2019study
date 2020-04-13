@@ -63,18 +63,29 @@ Page({
 
 
     // 获取博客列表
+    getBlogList(start = 0) {
 
-    getBlogList() {
+        wx.showLoading({
+            title: "努力加载中",
+            mask: true,
+        });
         wx.cloud.callFunction({
             name: 'blog',
             data: {
-                $url: 'list'
+                $url: 'list',
+                start,
+                count: 4
             }
         }).then(res => {
             console.log(res);
             this.setData({
-                blogList: res.result.data
+                blogList: this.data.blogList.concat(res.result.data)
             })
+
+            wx.hideLoading();
+            // 停止下拉刷新的状态
+            wx.stopPullDownRefresh()
+
 
         }).catch(err => {
             console.log(err);
@@ -82,6 +93,15 @@ Page({
         })
     },
 
+
+    // 跳转博客评论页
+    goBlogComment(event) {
+        console.log(event)
+        const blogId= event.target.dataset.blogid
+        wx.navigateTo({
+            url: '../blog-comment/blog-comment?blogId='+blogId,
+        });
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -114,20 +134,28 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function() {
-
+        this.data.blogList = []
+        this.getBlogList()
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
-
+        let start = this.data.blogList.length
+        this.getBlogList(start)
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
-
+    onShareAppMessage: function(event) {
+        console.log(event);
+        let blog=event.target.dataset.blog
+        return {
+            title:blog.content,
+            path:`/pages/blog-comment/blog-comment?blogId=${blog._id}`,
+            imageUrl:blog.img[0]
+        }
     }
 })

@@ -1,6 +1,7 @@
 //app.js
 App({
-    onLaunch: function() {
+    onLaunch: function () {
+        this.checkUpdate()
 
         if (!wx.cloud) {
             console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -18,5 +19,30 @@ App({
         this.globalData = {
             playingMusicId: '', //正在播放的音乐
         }
+    },
+    // 检查版本更新
+    checkUpdate() {
+        const updateManger = wx.getUpdateManager()
+
+        updateManger.onCheckForUpdate(res1 => {
+            console.log(res1)
+            if (res1.hasUpdate) {
+                updateManger.onUpdateReady(() => {
+                    wx.showModal({
+                        cancelText: '取消',
+                        confirmText: '确认',
+                        content: '有新版本上线，请更新',
+                        showCancel: true,
+                        success: (result) => {
+                            console.log(result)
+                            if (result.confirm) {
+                                updateManger.applyUpdate()
+                            }
+                        },
+                        title: '版本更新',
+                    })
+                })
+            }
+        })
     }
 })

@@ -66,5 +66,10 @@
 
 .blog-container {
     /* border: 1px solid red; */
-    margin-top: 100rpx;
+    margin-top: 120rpx;
+}
+
+.blog-panel {
+    margin-bottom: 20rpx;
+    box-sizing: border-box;
 }

@@ -1,0 +1,34 @@
+<view class="container">
+	<view class="blog-card">
+		<x-blog-card blog="{{blog}}"></x-blog-card>
+	</view>
+
+	<!-- 评论点赞列表 -->
+	<view class="tab">
+		<view class="tab-item">评论列表</view>
+	</view>
+
+	<!-- 评论列表内容 -->
+	<view class="comment-list">
+
+		<!-- 评论 -->
+		<block wx:for="{{commentList}}" wx:key="_id">
+			<view class="comment">
+				<view class="comment-title">
+					<image class="comment-portrait" src="{{item.avatarUrl}}"></image>
+					<text class="comment-nickname">{{item.nickName}}</text>
+				</view>
+				<view class="comment-content">
+					{{item.content}}
+				</view>
+				<view class="comment-time">{{item.createTime}}</view>
+			</view>
+		</block>
+	</view>
+
+</view>
+
+<!-- 博客控制 -->
+<view class="blog-ctrl">
+    <x-blog-ctrl blogId="{{blog._id}}" bind:refreshCommentList="_getBlogDetail"></x-blog-ctrl>
+</view>

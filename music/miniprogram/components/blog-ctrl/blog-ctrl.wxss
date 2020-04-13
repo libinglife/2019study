@@ -1,0 +1,54 @@
+/* components/blog-ctrl/blog-ctrl.wxss */
+
+.ctrl {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    height: 100%;
+    padding-bottom: 10rpx;
+    /* border: 1px solid red; */
+}
+
+.ctrl-item {
+    flex: 1;
+    text-align: center;
+    color: rgba(40, 47, 60, 0.8);
+    font-size: 26rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.ctrl-item .icon {
+    margin-right: 12rpx;
+    font-size: 32rpx;
+}
+
+.ctrl-item text {
+    font-size: 32rpx;
+}
+
+.comment-content {
+    width: 560rpx;
+    text-align: left;
+    padding: 20rpx;
+    font-size: 32rpx;
+}
+
+.send {
+    background-color: #d43c33;
+    color: #ffffff;
+    font-size: 24rpx;
+    position: absolute;
+    right: 20rpx;
+    bottom: 20rpx;
+}
+.ctrl-item .shareBtn{
+    background-color: #ffffff;
+    /* color: rgba(40, 47, 60, 0.8); */
+    color: rgba(40, 47, 60, 0.8);
+    /* color: red; */
+    font-weight: 100;
+    
+}

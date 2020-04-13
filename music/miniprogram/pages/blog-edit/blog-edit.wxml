@@ -11,16 +11,13 @@
     <!-- 图片区域 -->
     <view class="image-list">
         <!-- 显示图片区域 -->
-        <block wx:for="{{images}}" wx:key="{{index}}">
+        <block wx:for="{{images}}" wx:key="index">
             <view class="image-warp">
                 <image bind:tap="onPreviewImage" data-index="{{index}}" data-imgSrc="{{item}}" class="image" src="{{item}}" mode="aspectFill"></image> 
                 <i bind:tap="delImage" data-index="{{index}}" class="iconfont icon-shanchu"></i>
             </view>  
         </block>
           
-
-
-
         <!-- 选择图片 -->
         <view bind:tap="onChooseImage" hidden="{{!selectPhoto}}" class="image-warp selectPhoto">
             <i class="iconfont icon-jiahao"></i>

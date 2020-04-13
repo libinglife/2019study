@@ -3,8 +3,10 @@ page {
 }
 
 .blog {
+    box-sizing: border-box;
     padding: 20rpx;
     background-color: #fff;
+    /* background-color: red; */
 }
 
 .blog-title {
