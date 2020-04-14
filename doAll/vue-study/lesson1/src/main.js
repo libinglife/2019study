@@ -8,6 +8,8 @@ import createNotice from "./utils/createNotice";
 Vue.config.productionTip = false
 Vue.prototype.$bus = new Vue()
 Vue.prototype.$createNotice = createNotice
+
+
 new Vue({
     router,
     store,
