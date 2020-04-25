@@ -1,0 +1,59 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2020-04-20 12:06:17
+ * @LastEditTime: 2020-04-20 12:12:20
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apply 的实现原理</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.myApply = function(ctx) {
+            ctx = ctx || window
+            ctx.fn = this
+            let args = arguments[1] || []
+            console.log(args)
+
+            let result = ctx.fn(...args)
+            delete ctx.fn
+
+            return result
+        }
+
+        let obj1 = {
+            name: "李兵",
+            showName: function() {
+                console.log(this.name)
+            }
+        }
+
+        let obj2 = {
+            name: "老铁"
+        }
+        obj1.showName.myApply(obj2)
+
+
+
+        // 可以传参数
+        var foo = {
+            value: 1
+        }
+
+        function bar(name, age) {
+            console.log(name)
+            console.log(age)
+            console.log(this.value);
+        }
+        bar.myApply(foo, ['black', '18']) // black 18 1
+    </script>
+</body>
+
+</html>

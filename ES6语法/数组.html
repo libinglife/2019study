@@ -1,0 +1,40 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2020-04-17 21:25:13
+ * @LastEditTime: 2020-04-17 21:39:26
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [5, 4, 10, 88, 99];
+        let arr1 = arr.map((item, index, currentArr) => {
+                // console.log(index, item, currentArr)
+            })
+            // console.log(arr1)
+        let arr2 = arr.reduce((preVal, item, index, currentArr) => {
+            // console.log(arguments)
+            console.log(preVal, item, index)
+            return preVal + item
+                // console.log(preVal, item, index, currentArr)
+        })
+
+        console.log(arr2)
+
+
+        function test(a, b, v, d, s) {
+            console.log(arguments.length)
+        }
+        test(12321, 3, 4, 5, 6, 6)
+    </script>
+</body>
+
+</html>

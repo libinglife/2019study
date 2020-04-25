@@ -1,3 +1,9 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2020-03-29 11:00:52
+ * @LastEditTime: 2020-04-14 22:09:49
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +26,7 @@
 
         // for of  obj  
         // obj 是对象不可迭代 Uncaught TypeError: obj is not iterable
-        // for (const value of obj) {  
+        // for (const value of obj) {
         //     console.log(value)
         // }
 
@@ -45,7 +51,7 @@
         let objIndexArr = Object.keys(obj);
         console.log(objIndexArr);
         for (const iterator of objIndexArr) {
-            console.log(iterator)
+            console.log(obj[iterator])
         }
     </script>
 </body>

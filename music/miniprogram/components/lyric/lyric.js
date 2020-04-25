@@ -91,10 +91,12 @@ Component({
             // "[00:00.000] 作曲 : G．Z光泽"
             let lines = lrc.split('\n');
             let r1 = /\[(\d{2}):(\d{2})\.(\d{2,3})\](.*)/; //匹配时间
+            
             // let r2 = /([\u4E00-\u9FA5\\s]+)/ //匹配中文
 
             lines.forEach((item) => {
                 let regResult = r1.exec(item);
+                console.log(regResult)
                 // let regLrc = r2.exec(item);
 
                 if (regResult) {
@@ -107,7 +109,7 @@ Component({
                 }
 
             });
-
+           
             this.setData({
                 lyricList: tempObj
             })

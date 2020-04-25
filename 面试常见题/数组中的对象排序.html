@@ -1,0 +1,61 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2020-04-22 19:39:54
+ * @LastEditTime: 2020-04-23 11:04:59
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 按照数组中的age 降序排列，并输出name
+        let arr = [{
+            name: 'c',
+            age: 3
+        }, {
+            name: 'd',
+            age: 4
+        }, {
+            name: 'b',
+            age: 2
+        }, {
+            name: 'e',
+            age: 5
+        }, {
+            name: 'a',
+            age: 1
+        }, ]
+
+        paiXu(arr)
+
+        function paiXu(arr) {
+            let result = []
+            let tempAge = []
+            arr.forEach(item => {
+                tempAge.push(item.age)
+                tempAge.sort((a, b) => b - a)
+            });
+            console.log(tempAge)
+
+            tempAge.forEach(age => {
+                arr.forEach(item => {
+                    if (age == item.age) {
+                        result.push(item.name)
+                    }
+                });
+            });
+            console.log(result)
+            return result
+
+        }
+    </script>
+</body>
+
+</html>

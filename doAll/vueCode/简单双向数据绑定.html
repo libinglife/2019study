@@ -1,3 +1,9 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2020-03-31 22:35:25
+ * @LastEditTime: 2020-04-22 18:23:34
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,31 +18,64 @@
     <p id="p"></p>
 
     <script>
-        window.onload = function(param) {
+        // window.onload = function(param) {
+
+
+        //     let obj = {
+        //         text: ''
+        //     }
+        //     let value;
+        //     Object.defineProperty(obj, 'text', {
+        //         get() {
+        //             // console.log("get")
+        //             return value
+        //         },
+        //         set(newValue) {
+        //             value = newValue
+        //             document.getElementById('p').innerHTML = newValue
+        //             document.getElementById("text").value = newValue
+        //         }
+        //     })
+
+        //     document.getElementById('text').addEventListener('input', function(event) {
+
+        //         obj.text = event.target.value
+        //         console.log(obj.text)
+
+        //     })
+        // }
+
+
+        window.onload = function() {
+            let p = document.getElementById('p')
+            let text = document.getElementById('text')
 
             let obj = {
                 text: ''
             }
-            let value;
+
+            let value = ''
+
             Object.defineProperty(obj, 'text', {
+                enumerable: true,
+                configurable: true,
                 get() {
-                    // console.log("get")
                     return value
                 },
                 set(newValue) {
                     value = newValue
-                    document.getElementById('p').innerHTML = newValue
-                    document.getElementById("text").value = newValue
+
+                    p.innerHTML = newValue
+                    text.value = newValue
                 }
             })
 
-            document.getElementById('text').addEventListener('input', function(event) {
-
+            text.addEventListener("input", function(event) {
                 obj.text = event.target.value
                 console.log(obj.text)
-
-                // console.log(obj)
             })
+
+
 
 
 

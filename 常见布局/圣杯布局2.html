@@ -1,0 +1,74 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2020-04-16 10:04:22
+ * @LastEditTime: 2020-04-16 10:46:37
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        html {
+            height: 100%;
+        }
+        
+        body {
+            min-width: 550px;
+            height: 100%;
+        }
+        
+        #container {
+            height: 100%;
+            padding-left: 200px;
+            padding-right: 150px;
+            height: 100%;
+            position: relative;
+        }
+        
+        #container .column {
+            height: 100%;
+        }
+        
+        #center {
+            width: 100%;
+            background-color: red;
+            /* border: 1px solid red; */
+        }
+        
+        #left {
+            width: 200px;
+            /* margin-left: -100%; */
+            position: absolute;
+            top: 0;
+            left: 0px;
+            background-color: pink;
+        }
+        
+        #right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            /* margin-right: -150px; */
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="center" class="column">center</div>
+        <div id="left" class="column">left</div>
+        <div id="right" class="column">right</div>
+    </div>
+
+
+</body>
+
+</html>

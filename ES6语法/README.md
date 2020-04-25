@@ -1,3 +1,9 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2019-04-20 18:58:10
+ * @LastEditTime: 2020-04-16 15:43:18
+ -->
 
 一.解决异步回调
 
@@ -40,3 +46,8 @@
     async function fn() {
          await  1
     }
+
+    ```javascript
+
+    let a = 
+    ```

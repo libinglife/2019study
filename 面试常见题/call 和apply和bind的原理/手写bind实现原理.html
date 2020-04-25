@@ -1,0 +1,61 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2020-04-20 12:40:35
+ * @LastEditTime: 2020-04-20 13:49:13
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind 的实现原理</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.myBind = function(ctx) {
+            ctx = ctx || window
+            ctx._fn = this
+            let _this = this
+                // console.log(this) //当前调用的函数
+            let arg = [...arguments].slice(1)
+
+            return function(param) {
+                // _this.call(ctx, ...arg.concat(...arguments))
+                _this.apply(ctx, arg.concat(...arguments))
+            }
+        }
+
+        let obj1 = {
+            name: "李兵",
+            showName: function() {
+                console.log(this.name)
+            }
+        }
+
+        let obj2 = {
+            name: "老铁"
+        }
+        obj1.showName.myBind(obj2)()
+
+
+
+        // 可以传参数
+        var foo = {
+            value: 1
+        }
+
+        function bar(name, age, after1, after2) {
+            console.log(name)
+            console.log(age)
+            console.log(this.value);
+            console.log(after1);
+            console.log(after2);
+        }
+        bar.myBind(foo, 'black', '18')("后面的参数1", "后面的参数2") // black 18 1
+    </script>
+</body>
+
+</html>

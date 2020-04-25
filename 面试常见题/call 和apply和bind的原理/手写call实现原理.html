@@ -1,0 +1,58 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2020-04-20 10:28:50
+ * @LastEditTime: 2020-04-20 12:06:04
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call 的实现原理</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.myCall = function(ctx) {
+            ctx = ctx || window
+            console.log(ctx) //===>obj2
+            ctx._fn = this
+            console.log(this) //当前调用的函数
+            let arg = [...arguments].slice(1)
+
+            let result = ctx._fn(...arg)
+            delete ctx._fn
+            return result
+        }
+
+        let obj1 = {
+            name: "李兵",
+            showName: function() {
+                console.log(this.name)
+            }
+        }
+
+        let obj2 = {
+            name: "老铁"
+        }
+        obj1.showName.myCall(obj2)
+
+
+
+        // 可以传参数
+        var foo = {
+            value: 1
+        }
+
+        function bar(name, age) {
+            console.log(name)
+            console.log(age)
+            console.log(this.value);
+        }
+        bar.myCall(foo, 'black', '18') // black 18 1
+    </script>
+</body>
+
+</html>

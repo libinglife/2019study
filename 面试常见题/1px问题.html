@@ -1,15 +1,21 @@
+<!--
+ * @version: 
+ * @Author: 李兵
+ * @Date: 2020-04-02 09:02:13
+ * @LastEditTime: 2020-04-14 10:46:31
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>伪类 + transform:scale(0.5)</title>
 
     <style>
-        .box {
+        /* .box {
             width: 100%;
-            height: 1px;
+            height: 10px;
             margin: 20px 0;
             position: relative;
         }
@@ -23,6 +29,40 @@
             transform: scaleY(0.5);
             transform-origin: 0 0;
             background: red;
+        } */
+        
+        .box {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            background-color: pink;
+        }
+        /* 单条边 */
+        
+        .box::after {
+            /* content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            transform: scaleY(0.5);
+            background-color: red;
+            transform-origin: 0 0; */
+        }
+        /* 4条边都缩小 */
+        
+        .box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #000;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 200%;
+            height: 200%;
+            transform: scale(0.5);
+            transform-origin: left top;
         }
     </style>
 

@@ -1,0 +1,15 @@
+body {
+    /* font-family: "webfont" !important; */
+    border: 1px solid red;
+}
+
+@font-face {
+    font-family: 'myFont';
+    font-display: swap;
+    src: url('../font/webfont.woff2') format('woff2');
+}
+
+.addFont {
+    font-family: "myFont";
+    font-size: 22px;
+}
