@@ -1,14 +1,18 @@
 @font-face {
-  font-family: 'myFont';
+  font-family: 'webfont';
   font-display: swap;
-  src: url(4a0d8103115728e744bcca9110949094.woff2) format('woff2');
+  src: url(52855cd3f47a81a888a9a895b88fc68b.eot);
+  /* IE9 */
+  src: url(87e00425e37605c6942761cee742b9a6.ttf) format('truetype');
+  /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  /* iOS 4.1- */
 }
 body {
   /* font-family: "webfont" !important; */
   border: 1px solid red;
 }
 .addFont {
-  font-family: "myFont";
+  font-family: "webfont";
   font-size: 22px;
   -webkit-transform: scale(0.9);
           transform: scale(0.9);

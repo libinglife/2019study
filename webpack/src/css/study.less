@@ -1,8 +1,17 @@
-
 @font-face {
-    font-family: 'myFont';
+    // font-family: 'myFont';
+    // font-display: swap;
+    // src: url('../font/webfont.ttf') format('ttf');
+
+    font-family: 'webfont';
     font-display: swap;
-    src: url('../font/webfont.woff2') format('woff2');
+    src: url('webfont.eot');
+    /* IE9 */
+    src: url('webfont.ttf') format('truetype');
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    // url('webfont.svg#webfont') format('svg');
+    /* iOS 4.1- */
+
 }
 
 
@@ -14,10 +23,11 @@ body {
 
 
 .addFont {
-    font-family: "myFont";
+    font-family: "webfont";
     font-size: 22px;
     transform: scale(0.9);
-    span{
+
+    span {
         display: flex;
         color: red;
     }
